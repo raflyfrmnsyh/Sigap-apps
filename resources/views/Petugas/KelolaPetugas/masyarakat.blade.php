@@ -28,24 +28,12 @@
                         <tr>
                             <td>{{ $count++ }}</td>
                             <td><strong>{{ $item->name }}</strong></td>
-                            <td>{{ $item->petugas->telp }}</td>
+                            <td>{{ $item->masyarakat->telp }}</td>
                             <td>{{ "@" . $item->username }}</td>
                             <td>
-                                @if ($item->role_id == 1)
-                                    Admin
-                                @endif
-                                @if ($item->role_id == 2)
-                                    Petugas
-                                @endif
+                                Masyarakat
                             </td>
                             <td class="d-flex">
-                              <form action="/admin/edit-petugas/{{ $item->id }}" method="post" class="mx-1">
-                                @csrf
-                                @method('PUT')
-                                <button class=" btn badge bg-label-warning d-flex align-items-center justify-content-center" style="width: 32px !important; height:32px !important;">
-                                  <i class="bx bx-edit"></i>
-                                </button>
-                              </form>
                               <form action="/admin/hapus-petugas/{{ $item->id }}" class="mx-1" method="POST">
                                 @csrf
                                 <button type="submit" class="btn badge bg-label-danger d-flex align-items-center justify-content-center" style="width: 32px !important; height:32px !important;" onclick="return confirm('Apakah anda yakin menghapus data {{ $item->name }}?')">

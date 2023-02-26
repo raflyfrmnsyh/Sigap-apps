@@ -25,6 +25,7 @@
             <tbody class="table-border-bottom-0">
                 @if (count($data) > 0)
                     @foreach ($data as $item)
+                    {{-- @dd($item) --}}
                         <tr>
                             <td>{{ $count++ }}</td>
                             <td><strong>{{ $item->judul_laporan }}</strong></td>
@@ -40,7 +41,7 @@
                                 <i class="bx bx-dots-vertical-rounded"></i>
                                 </button>
                                 <div class="dropdown-menu">
-                                <a class="dropdown-item" href="/Admin/Pengaduan/{{ $item->id_pengaduan }}"
+                                <a class="dropdown-item" href="/Admin/Pengaduan/{{ $item->id }}"
                                     ><i class="bx bx-edit-alt me-1"></i> Detail</a
                                 >
                                 </div>

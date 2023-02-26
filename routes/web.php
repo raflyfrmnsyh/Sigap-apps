@@ -3,6 +3,7 @@
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\MasyarakatController;
 use App\Http\Controllers\PengaduanController;
+use App\Http\Controllers\PetugasController;
 use App\Http\Controllers\ProfilController;
 use Illuminate\Support\Facades\Route;
 
@@ -22,6 +23,7 @@ Route::get('/', function () {
 });
 
 Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
+Route::get('/admin/logout', [AuthController::class, 'logoutAdmin'])->name('admin.logout');
 
 
 Route::middleware('guest')->group(function () {
@@ -32,15 +34,13 @@ Route::middleware('guest')->group(function () {
         Route::get('/login', 'viewLogin')->name('login.masyarakat');
         Route::get('/register', 'viewRegister')->name('register.masyarakat');
         Route::get('/Admin/login', 'loginAdmin')->name('login.admin');
-        Route::get('/Admin/tambah-petugas', 'register')->name('login.admin');
-
+        Route::post('/Admin/login', 'logingAdmin')->name('loging.admin');
         /**
          * Route Prosess
          */
         Route::post('/log', 'login')->name('login');
         Route::post('/reg', 'register')->name('register');
         Route::post('/log-admin', 'register')->name('log.admin');
-        Route::post('/reg-admin', 'register')->name('reg.admin');
     })->name('auth');
 });
 
@@ -70,5 +70,37 @@ Route::middleware(['auth', 'masyarakat'])->group(function () {
 
     Route::controller(PengaduanController::class)->group(function () {
         Route::post('/buat-pengaduan', 'store')->name('pengaduan.masyarakat');
+    });
+});
+
+
+Route::controller(PetugasController::class)->group(function () {
+
+    Route::middleware(['auth', 'petugas'])->group(function () {
+        Route::get('/admin/dashboard', 'viewDashboard')->name('admin.dashboard');
+        Route::get('/admin/pengaduan-masuk', 'viewPengaduanMasuk')->name('pengaduan.masuk');
+        Route::get('/admin/pengaduan-ditanggapi', 'viewPengaduanDitanggapi')->name('pengaduan.ditanggapi');
+        Route::get('/admin/pengaduan-ditolak', 'viewPengaduanDitolak')->name('pengaduan.ditolak');
+
+        Route::get('/Admin/Pengaduan/{id}', 'viewDetail')->name('view.pengaduan');
+
+        Route::post('/Admin/Pengaduan/tanggapan/{id}', 'tanggapi')->name('tanggapi.pengaduan');
+    });
+
+
+    Route::middleware(['auth', 'admin'])->group(function () {
+        // Route Admin
+        Route::get('/Admin/tambah-petugas', 'viewRegPetugas')->name('register.petugas');
+        Route::post('/reg-admin', 'register')->name('tambah.petugas');
+
+        Route::post('/admin/hapus-petugas/{user_id}', 'deletePetugas')->name('delete.petugas');
+
+        Route::get('/admin/edit-petugas/{user_id}', 'viewUbahDataPetugas');
+        Route::put('/admin/edit-petugas/{user_id}', 'viewUbahDataPetugas');
+
+        Route::get('/admin/kelola-masyarakat', 'viewKelolaMasyarakat')->name('kelola.masyarakat');
+
+
+        Route::get('/admin/data-petugas', 'viewDataPetugas')->name('data.petugas');
     });
 });

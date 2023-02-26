@@ -21,7 +21,6 @@ return new class extends Migration
             $table->text('tanggapan');
             $table->string('status');
             $table->string('username');
-            $table->foreign('username')->references('username')->on('users');
             $table->timestamps();
         });
     }

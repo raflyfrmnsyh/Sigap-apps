@@ -6,7 +6,7 @@
 
     <div class="card p-5">
         <div class="backBtn">
-            <a href="/Admin/kontak-masuk" class="btn btn-primary">
+            <a href="{{ route('pengaduan.masuk') }}" class="btn btn-primary">
                 <i class='bx bx-chevron-left'></i></a>
         </div>
         <div class="mt-3">
@@ -31,7 +31,7 @@
     </div>
 
     <div class="form-bx mt-3">
-            <form action="/Admin/Pengaduan/tanggapan/{{ $data->id_pengaduan }}" class="formTanggapan" method="post">
+            <form action="/Admin/Pengaduan/tanggapan/{{ $data->id }}" class="formTanggapan" method="post">
                 @csrf
                     <div class="card mb-4">
                       <h5 class="card-header">Form Tanggapan</h5>

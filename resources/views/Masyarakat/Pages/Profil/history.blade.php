@@ -64,7 +64,7 @@
                                     @endif
                                     @if ($i->status == 'terima')
                                         <div class="badge badge-success">
-                                            <span>Sudah Di tanggapi</span>
+                                            <span>Laporan Diterima</span>
                                         </div>
                                     @endif
                                 </div>

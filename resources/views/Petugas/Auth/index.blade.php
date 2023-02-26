@@ -79,7 +79,7 @@
                   <img src="../Admin/Assets/img/icons/brands/logo-dark.png" alt="Logo" width="180px" class="app-brand-logo demo mt-3">
                 </a>
               </div>
-              <form id="formAuthentication" class="mb-3" action="/Admin/login/loging" method="POST">
+              <form id="formAuthentication" class="mb-3" action="{{ route('loging.admin') }}" method="POST">
                 @csrf
                 <div class="mb-3">
                   <input

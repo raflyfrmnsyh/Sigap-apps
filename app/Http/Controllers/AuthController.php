@@ -110,6 +110,32 @@ class AuthController extends Controller
         // return $request;
     }
 
+    public function logingAdmin(Request $request)
+    {
+        // return $request;
+
+        $log = $request->validate([
+            'username' => 'required|min:5',
+            'password' => 'required'
+        ]);
+
+        $check = User::where('username', $request->username)->first();
+
+        if ($check) {
+            if ($check->role_id == 3) {
+                return redirect(route('login'));
+            }
+        }
+
+        if (Auth::attempt($log)) {
+            $request->session()->regenerate();
+
+            return redirect()->intended('/admin/dashboard');
+        } else {
+            return back()->with('fail', 'Gagal Login!');
+        }
+    }
+
 
 
     public function logout(Request $request)
@@ -123,5 +149,17 @@ class AuthController extends Controller
         $request->session()->regenerateToken();
 
         return redirect('/');
+    }
+
+    public function logoutAdmin(Request $request)
+    {
+
+        Auth::logout();
+
+        $request->session()->invalidate();
+
+        $request->session()->regenerateToken();
+
+        return redirect(route('loging.admin'));
     }
 }

@@ -36,7 +36,7 @@ class MasyarakatController extends Controller
     {
 
         $tes = Tanggapan::all()
-            ->where('id_pengaduan', $detail->id_pengaduan);
+            ->where('id', $detail->id);
 
         return view('Masyarakat\Pages\Profil\history-detail', [
             'title' => $detail->judul_laporan,

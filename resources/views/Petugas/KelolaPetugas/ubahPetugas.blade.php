@@ -2,10 +2,10 @@
 
 @section('content')
     @section('content-container')
-    <form action="{{ route('tambah.petugas') }}" method="POST">
+    <form action="" method="POST">
         @csrf
         <div class="card mb-4">
-            <h5 class="card-header">Tambah Data Petugas</h5>
+            <h5 class="card-header">Ubah Data Petugas</h5>
             <div class="card-body">
                 <div>
                     <input
@@ -14,7 +14,7 @@
                     id="defaultFormControlInput"
                     placeholder="Nama Lengkap"
                     name="name"
-                    value="{{ old('name') }}"
+                    value="{{ old('name', $data->name) }}"
                     aria-describedby="defaultFormControlHelp"
                     />
                 </div>
@@ -33,7 +33,7 @@
                     id="defaultFormControlInput"
                     placeholder="Username"
                     name="username"
-                    value="{{ old('username') }}"
+                    value="{{ old('username', $data->username) }}"
                     aria-describedby="defaultFormControlHelp"
                     />
                 </div>
@@ -53,7 +53,7 @@
                     placeholder="No.Telp"
                     name="telp"
                     maxlength="13"
-                    value="{{ old('telp') }}"
+                    value="{{ old('telp', $data->petugas->telp) }}"
                     aria-describedby="defaultFormControlHelp"
                     />
                 </div>
@@ -67,9 +67,17 @@
                 @enderror
                 <div class="mt-4 input-group">
                     <select class="form-select" id="inputGroupSelect01" name="Level">
-                      <option selected>Pilih Level</option>
-                      <option value="1">Admin</option>
-                      <option value="2">Petugas</option>
+                        @if ($data->role_id == 1)
+                            <option selected>Admin</option>
+                            <option value="1">Admin</option>
+                            <option value="2">Petugas</option>
+                        @endif
+                        @if ($data->role_id == 2)
+                            <option selected>Petugas</option>
+                            <option value="1">Admin</option>
+                            <option value="2">Petugas</option>
+                        @endif
+                      
                     </select>
                 </div>
                 <div class="mt-4">
@@ -78,7 +86,7 @@
                     class="form-control"
                     name="password"
                     id="defaultFormControlInput"
-                    placeholder="Buat Password"
+                    placeholder="Ubah Password"
                     aria-describedby="defaultFormControlHelp"
                     />
                 </div>
@@ -95,7 +103,7 @@
                     type="submit"
                     class="btn btn-primary"
                     id="defaultFormControlInput"
-                    value="Tambahkan"
+                    value="Ubah"
                     aria-describedby="defaultFormControlHelp"
                     />
                 </div>

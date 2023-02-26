@@ -28,21 +28,16 @@
                             </div>
                           </div>
                           <div class="flex-grow-1">
-                            <span class="fw-semibold d-block">John Doe</span>
-                            <small class="text-muted">Admin</small>
+                            <span class="fw-semibold d-block">{{ auth()->user()->name }}</span>
+                            @if (auth()->user()->role_id == 1)
+                              <small class="text-muted">Admin</small>
+                            @endif
+                            @if (auth()->user()->role_id == 2)
+                              <small class="text-muted">Petugas</small>
+                            @endif
                           </div>
                         </div>
                       </a>
-                    </li>
-                    <li>
-                      <div class="dropdown-divider"></div>
-                    </li>
-                    <li>
-                      <form action="/Admin/logout" method="GET" class="dropdown-item" href="auth-login-basic.html">
-                        @csrf
-                        <button type="submit" class="btn"><i class="bx bx-power-off me-2"></i>
-                          <span class="align-middle">Log Out</span></button>
-                      </form>
                     </li>
                   </ul>
                 </li>
