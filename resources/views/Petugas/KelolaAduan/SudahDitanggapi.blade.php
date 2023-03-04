@@ -40,9 +40,14 @@
                                 <i class="bx bx-dots-vertical-rounded"></i>
                                 </button>
                                 <div class="dropdown-menu">
-                                <a class="dropdown-item" href="/Admin/Pengaduan/{{ $item->id_pengaduan }}"
-                                    ><i class="bx bx-edit-alt me-1"></i> Detail</a
-                                >
+                                    <a class="dropdown-item" href="/Admin/Pengaduan/edit/{{ $item->id }}"
+                                        ><i class="bx bx-edit-alt me-1"></i> Detail</a
+                                    >
+                                    <form action="/Admin/tanggapan/hapus/{{ $item->id }}" class="dropdown-item" method="post">
+                                        @csrf
+                                        <button class="btn px-1" type="submit" onclick="return confirm('Anda Yakin akan menghapus tanggapan?')"><i class="bx bx-trash me-1"></i> Hapus Tanggapan</button>
+                                    </form>
+                                    
                                 </div>
                             </div>
                             </td>
@@ -60,6 +65,12 @@
             {!! $data->links() !!}
         </div>
     </div>  
+
+    @if (session()->has('success'))
+        <script>
+            alert(`{{ session('success') }}`);
+        </script>
+    @endif
 
     @endsection
 @endsection

@@ -17,7 +17,6 @@
                 <th>No.phone</th>
                 <th>Username</th>
                 <th>Role</th>
-                <th>Actions</th>
                 
               </tr>
             </thead>
@@ -32,14 +31,6 @@
                             <td>{{ "@" . $item->username }}</td>
                             <td>
                                 Masyarakat
-                            </td>
-                            <td class="d-flex">
-                              <form action="/admin/hapus-petugas/{{ $item->id }}" class="mx-1" method="POST">
-                                @csrf
-                                <button type="submit" class="btn badge bg-label-danger d-flex align-items-center justify-content-center" style="width: 32px !important; height:32px !important;" onclick="return confirm('Apakah anda yakin menghapus data {{ $item->name }}?')">
-                                  <i class="bx bx-trash"></i>
-                                </button>
-                              </form>
                             </td>
                         </tr>
                     @endforeach

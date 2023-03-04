@@ -83,6 +83,10 @@ Route::controller(PetugasController::class)->group(function () {
         Route::get('/admin/pengaduan-ditolak', 'viewPengaduanDitolak')->name('pengaduan.ditolak');
 
         Route::get('/Admin/Pengaduan/{id}', 'viewDetail')->name('view.pengaduan');
+        Route::get('/Admin/Pengaduan/edit/{id}', 'editTanggapan')->name('edit.tanggapan');
+
+        Route::post('/Admin/tanggapan/hapus/{id}', 'hapusTanggapan')->name('hapus.tanggapan');
+        Route::post('/Admin/Pengaduan/tanggapan/edit{id}', 'updateTanggapan')->name('edit.tanggapan.prosess');
 
         Route::post('/Admin/Pengaduan/tanggapan/{id}', 'tanggapi')->name('tanggapi.pengaduan');
     });
@@ -97,9 +101,9 @@ Route::controller(PetugasController::class)->group(function () {
 
         Route::get('/admin/edit-petugas/{user_id}', 'viewUbahDataPetugas');
         Route::put('/admin/edit-petugas/{user_id}', 'viewUbahDataPetugas');
+        Route::post('/admin/edit-petugas/{user_id}', 'UbahDataPetugas')->name('ubah.petugas');
 
         Route::get('/admin/kelola-masyarakat', 'viewKelolaMasyarakat')->name('kelola.masyarakat');
-
 
         Route::get('/admin/data-petugas', 'viewDataPetugas')->name('data.petugas');
     });

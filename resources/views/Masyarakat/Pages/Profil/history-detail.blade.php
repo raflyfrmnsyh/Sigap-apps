@@ -60,6 +60,7 @@
                     </div>
                 @foreach ($tanggapan as $item)
                     <div class="tanggapan-bx">
+                        {{-- @dd($item->status) --}}
                         <h3>Tanggapan : {{ $item->status }}</h3>
                         <p class="detail-tanggapan">
                             {{ $item->tanggapan }}

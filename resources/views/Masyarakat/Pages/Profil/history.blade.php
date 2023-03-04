@@ -39,7 +39,8 @@
             </div>
         @endif
 
-        @foreach ($data as $i)            
+        @foreach ($data as $i)     
+        {{-- @dd($i->status)        --}}
                 <div class="history-bx">
                     <div class="card-history">
                         <div class="card-img">

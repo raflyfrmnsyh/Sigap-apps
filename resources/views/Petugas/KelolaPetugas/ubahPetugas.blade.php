@@ -1,8 +1,8 @@
 @extends('Petugas\Tamplate\tamplate');
-
+{{-- @dd($data) --}}
 @section('content')
     @section('content-container')
-    <form action="" method="POST">
+    <form action="/admin/edit-petugas/{{ $data->id }}" method="POST">
         @csrf
         <div class="card mb-4">
             <h5 class="card-header">Ubah Data Petugas</h5>
@@ -68,12 +68,12 @@
                 <div class="mt-4 input-group">
                     <select class="form-select" id="inputGroupSelect01" name="Level">
                         @if ($data->role_id == 1)
-                            <option selected>Admin</option>
+                            <option value="1">Admin</option>
                             <option value="1">Admin</option>
                             <option value="2">Petugas</option>
                         @endif
                         @if ($data->role_id == 2)
-                            <option selected>Petugas</option>
+                            <option value="2">Petugas</option>
                             <option value="1">Admin</option>
                             <option value="2">Petugas</option>
                         @endif

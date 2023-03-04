@@ -72,6 +72,65 @@ class PetugasController extends Controller
         ]);
     }
 
+
+    public function editTanggapan(Pengaduan $id)
+    {
+        // return $id;
+
+        $tanggapan = Tanggapan::all()->where('id_pengaduan', $id->id);
+
+        foreach ($tanggapan as $item) {
+            // dd($item);
+        }
+
+        return view('Petugas\KelolaAduan\editTanggapan', [
+            'title' => 'Edit Tanggapan',
+            'data' => $id,
+            'tanggapan' => $item
+        ]);
+    }
+
+    public function updateTanggapan(Request $request, Pengaduan $id)
+    {
+        // return $id;
+
+        $data = $request->merge([
+            'id_pengaduan' => $id->id,
+            'tanggapan' => $request->tanggapan,
+            'status' => $request->status,
+            'username' => auth()->user()->username
+        ]);
+
+        Tanggapan::where('id_pengaduan', $id->id)
+            ->update($request->only(['id_pengaduan', 'tanggapan', 'status', 'username']));
+
+        Pengaduan::where('id', $id->id)
+            ->update($request->only(['status']));
+
+        return back()->with('success', 'Aduan berhasil Di tanggapi!');
+    }
+
+    public function hapusTanggapan(Pengaduan $id)
+    {
+        // return $id;
+
+        Pengaduan::where('id', $id->id)
+            ->update(['status' => 'prosess']);
+
+        $tes = Tanggapan::where('id_pengaduan', $id->id)->delete();
+
+        return back()->with('success', 'Aduan Berhasil di Hapus, Dan pindah ke kontak masuk');
+    }
+
+
+
+
+
+
+
+
+
+
     public function viewUbahDataPetugas(User $user_id)
     {
         // return $user_id;
@@ -81,6 +140,58 @@ class PetugasController extends Controller
 
         ]);
     }
+
+
+    public function UbahDataPetugas(Request $request, $user_id)
+    {
+
+        // Update Petugas
+
+        // return $user_id;
+
+        $request->validate([
+            'name' => ['required', 'max:30'],
+            'username' => ['required', 'min:5', 'max:20'],
+            'telp' => ['required', 'min:12', 'max:14'],
+        ]);
+
+        $request->merge([
+            'role_id' => $request->Level,
+            'user_id' => $user_id,
+            'password' => Hash::make($request['password'])
+        ]);
+
+
+        // Check apakah password di isi atau tidak
+
+        if ($request->password == null) {
+            User::where('id', $user_id)
+                ->update($request->only(
+                    ['name', 'username', 'role_id']
+                ));
+            Petugas::where('user_id', $user_id)
+                ->update($request->only(
+                    ['user_id', 'name', 'telp']
+                ));
+            return back()->with('success', 'Data Berhasil diubah!');
+        }
+
+
+        User::where('id', $user_id)
+            ->update($request->only(
+                ['name', 'username', 'password', 'role_id']
+            ));
+
+        Petugas::where('user_id', $user_id)
+            ->update($request->only(
+                ['user_id', 'name', 'telp']
+            ));
+
+        return back()->with('success', 'Data Berhasil diubah!');
+
+        // dd($request->all());
+    }
+
 
 
     public function viewDetail(Pengaduan $id)

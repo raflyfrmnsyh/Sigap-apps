@@ -22,7 +22,7 @@ class Tanggapan extends Model
 
     public function pengaduan()
     {
-        return $this->hasOne(Pengaduan::class, 'id_pengaduan', 'id_pengaduan');
+        return $this->belongsTo(Pengaduan::class, 'id_pengaduan', 'id_pengaduan');
     }
 
     public function user()
