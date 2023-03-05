@@ -66,5 +66,6 @@ class Kernel extends HttpKernel
         'admin' => \App\Http\Middleware\AdminMiddleware::class,
         'petugas' => \App\Http\Middleware\PetugasMiddleware::class,
         'masyarakat' => \App\Http\Middleware\MasyarakatMiddleware::class,
+        'disableBack' => \App\Http\Middleware\DisbaleBack::class
     ];
 }

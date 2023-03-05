@@ -11,7 +11,9 @@ class Pengaduan extends Model
 
 
 
+    protected $with = ['masyarakat'];
     protected $table = 'pengaduan';
+
 
     protected $fillable = [
         'judul_laporan',

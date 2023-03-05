@@ -10,6 +10,8 @@ class Masyarakat extends Model
     use HasFactory;
 
     protected $table = 'masyarakat';
+    protected $with = ['user'];
+
 
     protected $fillable = [
         'user_id',

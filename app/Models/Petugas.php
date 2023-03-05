@@ -10,6 +10,8 @@ class Petugas extends Model
     use HasFactory;
 
     protected $table = 'petugas';
+    protected $with = ['user'];
+
 
     protected $fillable = [
         'name',

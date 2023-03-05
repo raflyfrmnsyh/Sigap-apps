@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Masyarakat;
 use App\Models\Pengaduan;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -23,6 +24,9 @@ class PetugasController extends Controller
         $data1 = Pengaduan::where('status', 'prosess');
         $data2 = Pengaduan::where('status', 'terima');
         $data3 = Pengaduan::where('status', 'tolak');
+        $masyarakat = Masyarakat::all();
+        $petugas = Petugas::all();
+
 
 
         return view('Petugas\index', [
@@ -31,6 +35,8 @@ class PetugasController extends Controller
             'total_prosess' => $data1->count(),
             'total_diterima' => $data2->count(),
             'total_ditolak' => $data3->count(),
+            'total_masyarakat' => $masyarakat->count(),
+            'total_petugas' => $petugas->count(),
         ]);
     }
 
@@ -53,7 +59,7 @@ class PetugasController extends Controller
         $count = 1;
 
         return view('Petugas\KelolaAduan\SudahDitanggapi', [
-            'title' => 'Sudah Ditanggapi',
+            'title' => 'Pengaduan Diterima',
             'data' => $data,
             'count' => $count
 
@@ -158,13 +164,27 @@ class PetugasController extends Controller
         $request->merge([
             'role_id' => $request->Level,
             'user_id' => $user_id,
-            'password' => Hash::make($request['password'])
         ]);
 
 
         // Check apakah password di isi atau tidak
 
-        if ($request->password == null) {
+        if (!empty($request->password)) {
+
+            $request->merge([
+                'password' => Hash::make($request['password'])
+            ]);
+
+            User::where('id', $user_id)
+                ->update($request->only(
+                    ['name', 'username', 'password', 'role_id']
+                ));
+            Petugas::where('user_id', $user_id)
+                ->update($request->only(
+                    ['user_id', 'name', 'telp']
+                ));
+            return back()->with('success', 'Data Berhasil diubah!');
+        } else {
             User::where('id', $user_id)
                 ->update($request->only(
                     ['name', 'username', 'role_id']
@@ -176,18 +196,7 @@ class PetugasController extends Controller
             return back()->with('success', 'Data Berhasil diubah!');
         }
 
-
-        User::where('id', $user_id)
-            ->update($request->only(
-                ['name', 'username', 'password', 'role_id']
-            ));
-
-        Petugas::where('user_id', $user_id)
-            ->update($request->only(
-                ['user_id', 'name', 'telp']
-            ));
-
-        return back()->with('success', 'Data Berhasil diubah!');
+        // return back()->with('success', 'Data Berhasil diubah!');
 
         // dd($request->all());
     }

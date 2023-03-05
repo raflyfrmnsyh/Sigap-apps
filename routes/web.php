@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\LaporanController;
 use App\Http\Controllers\MasyarakatController;
 use App\Http\Controllers\PengaduanController;
 use App\Http\Controllers\PetugasController;
@@ -44,7 +45,7 @@ Route::middleware('guest')->group(function () {
     })->name('auth');
 });
 
-Route::middleware(['auth', 'masyarakat'])->group(function () {
+Route::middleware(['auth', 'masyarakat', 'disableBack'])->group(function () {
 
     Route::controller(MasyarakatController::class)->group(function () {
         Route::get('/beranda', 'index')->name('beranda.masyarakat');
@@ -76,7 +77,7 @@ Route::middleware(['auth', 'masyarakat'])->group(function () {
 
 Route::controller(PetugasController::class)->group(function () {
 
-    Route::middleware(['auth', 'petugas'])->group(function () {
+    Route::middleware(['auth', 'petugas', 'disableBack'])->group(function () {
         Route::get('/admin/dashboard', 'viewDashboard')->name('admin.dashboard');
         Route::get('/admin/pengaduan-masuk', 'viewPengaduanMasuk')->name('pengaduan.masuk');
         Route::get('/admin/pengaduan-ditanggapi', 'viewPengaduanDitanggapi')->name('pengaduan.ditanggapi');
@@ -92,7 +93,7 @@ Route::controller(PetugasController::class)->group(function () {
     });
 
 
-    Route::middleware(['auth', 'admin'])->group(function () {
+    Route::middleware(['auth', 'admin', 'disableBack'])->group(function () {
         // Route Admin
         Route::get('/Admin/tambah-petugas', 'viewRegPetugas')->name('register.petugas');
         Route::post('/reg-admin', 'register')->name('tambah.petugas');
@@ -106,5 +107,14 @@ Route::controller(PetugasController::class)->group(function () {
         Route::get('/admin/kelola-masyarakat', 'viewKelolaMasyarakat')->name('kelola.masyarakat');
 
         Route::get('/admin/data-petugas', 'viewDataPetugas')->name('data.petugas');
+    });
+});
+
+
+Route::controller(LaporanController::class)->group(function () {
+
+    Route::middleware(['auth', 'admin', 'disableBack'])->group(function () {
+        Route::get('/admin/laporan', 'index')->name('generate.laporan');
+        Route::get('/admin/laporan/filter', 'filter')->name('filter.pengaduan');
     });
 });

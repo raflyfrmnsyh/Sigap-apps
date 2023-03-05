@@ -36,7 +36,7 @@
           
           <li class="menu-item">
             <a href="{{ route('pengaduan.ditanggapi') }}" class="menu-link">
-              <div data-i18n="generatePengaduan">Sudah Ditanggapi</div>
+              <div data-i18n="generatePengaduan">Diterima</div>
             </a>
           </li>
           <li class="menu-item">
@@ -49,6 +49,12 @@
       @if (auth()->user()->role_id == 1)
           <li class="menu-header small text-uppercase">
             <span class="menu-header-text">Management</span>
+          </li>
+          <li class="menu-item">
+            <a href="{{ route('generate.laporan') }}" class="menu-link">
+              <i class="menu-icon tf-icons bx bx-file"></i>
+              <div data-i18n="Analytics">Generate Laporan</div>
+            </a>
           </li>
           <li class="menu-item">
             <a href="javascript:void(0);" class="menu-link menu-toggle">
