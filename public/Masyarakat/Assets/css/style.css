@@ -987,6 +987,242 @@ footer {
   color: #EB455F;
 }
 
+.landing-section .navbar_landing {
+  height: 120px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: row;
+}
+.landing-section .navbar_landing .nav-logo img {
+  width: 60%;
+}
+.landing-section .navbar_landing .nav-menu {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+}
+.landing-section .navbar_landing .nav-menu .nav-item {
+  margin-left: 40px;
+  font-size: 16px;
+  list-style: none;
+}
+.landing-section .navbar_landing .nav-menu .nav-item.active a {
+  color: #EB455F;
+  font-weight: 600;
+}
+.landing-section .navbar_landing .nav-menu .nav-item a {
+  text-decoration: none;
+  color: rgba(68, 68, 68, 0.3764705882);
+  font-weight: 400;
+  transition: all ease 0.4s;
+}
+.landing-section .navbar_landing .nav-menu .nav-item.btn a {
+  padding: 14px 20px;
+  border-radius: 12px;
+  width: 100%;
+  height: 100%;
+  color: white;
+  background-color: #EB455F;
+  border: 2px solid #EB455F;
+}
+.landing-section .navbar_landing .menu-btn {
+  display: none;
+}
+.landing-section .hero {
+  width: 100%;
+  height: 620px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: row;
+}
+.landing-section .hero .hero-info {
+  width: 48%;
+}
+.landing-section .hero .hero-info .text h2 {
+  font-size: 42px;
+  color: #333;
+  line-height: 58px;
+  font-weight: 700;
+}
+.landing-section .hero .hero-info .text h2 span {
+  color: #EB455F;
+}
+.landing-section .hero .hero-info .text p {
+  margin-top: 20px;
+  color: #888;
+}
+.landing-section .hero .hero-info .download {
+  margin-top: 40px;
+}
+.landing-section .hero .hero-info .download img {
+  margin-right: 20px;
+}
+.landing-section .fitur-section {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: row;
+  height: 560px;
+}
+.landing-section .fitur-section .fitur-list {
+  width: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+.landing-section .fitur-section .fitur-list .card {
+  margin-bottom: 20px;
+  border: 1px solid #eaeaea;
+  padding: 20px;
+  width: 40%;
+}
+.landing-section .fitur-section .fitur-list .card .icon {
+  margin-bottom: 10px;
+}
+.landing-section .fitur-section .fitur-list .card .icon img {
+  width: 64px;
+}
+.landing-section .fitur-section .fitur-list .card .body h3 {
+  font-size: 16px;
+  color: #444;
+}
+.landing-section .fitur-section .fitur-list .card .body p {
+  margin-top: 10px;
+  font-size: 14px;
+  color: #888;
+}
+.landing-section .fitur-section .fitur-detail {
+  width: 40%;
+}
+.landing-section .fitur-section .fitur-detail h5 {
+  color: #EB455F;
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+.landing-section .fitur-section .fitur-detail h2 {
+  font-size: 32px;
+  color: #444;
+  margin-bottom: 20px;
+}
+.landing-section .fitur-section .fitur-detail p {
+  font-size: 14px;
+  line-height: 24px;
+  color: #888;
+  text-align: justify;
+}
+.landing-section .tentang-section {
+  width: 100%;
+  height: 560px;
+  position: relative;
+}
+.landing-section .tentang-section .container-md {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: row;
+}
+.landing-section .tentang-section .container-md .tentang-info {
+  width: 48%;
+}
+.landing-section .tentang-section .container-md .tentang-info h5 {
+  color: #EB455F;
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+.landing-section .tentang-section .container-md .tentang-info h2 {
+  font-size: 32px;
+  color: #444;
+  margin-bottom: 20px;
+}
+.landing-section .tentang-section .container-md .tentang-info p {
+  font-size: 14px;
+  line-height: 24px;
+  color: #888;
+  text-align: justify;
+  margin-bottom: 40px;
+}
+.landing-section .tentang-section .container-md .tentang-info .btn {
+  padding: 14px 20px;
+  border-radius: 12px;
+  width: 100%;
+  height: 100%;
+  color: white;
+  background-color: #EB455F;
+  border: 2px solid #EB455F;
+  text-decoration: none;
+  transition: all ease 0.4s;
+}
+.landing-section .tentang-section .container-md .tentang-info .btn:hover {
+  background-color: #d33c53;
+}
+.landing-section .tentang-section .gradient {
+  position: absolute;
+  top: -2px;
+  right: 0;
+  z-index: -10;
+  height: 100%;
+  width: 400px;
+  background-image: linear-gradient(270deg, rgba(235, 69, 95, 0.6) -20.07%, rgba(235, 69, 95, 0) 79.08%);
+}
+.landing-section .alur-section {
+  width: 100%;
+  height: 540px;
+}
+.landing-section .alur-section .container-md {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+.landing-section .alur-section .container-md .title {
+  margin: 0 auto;
+  text-align: center;
+  width: 50%;
+}
+.landing-section .alur-section .container-md .title h4 {
+  font-size: 18px;
+  color: #EB455F;
+}
+.landing-section .alur-section .container-md .title h2 {
+  margin-top: 20px;
+  font-size: 32px;
+  color: #222;
+}
+.landing-section .alur-section .container-md .alur-bx {
+  margin-top: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: row;
+}
+.landing-section .alur-section .container-md .alur-bx .card {
+  width: 24%;
+}
+.landing-section .alur-section .container-md .alur-bx .card .icon {
+  width: 42px;
+  height: 42px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  font-size: 22px;
+  border-radius: 12px;
+  color: #EB455F;
+  background-color: rgba(235, 69, 95, 0.1254901961);
+  margin-bottom: 20px;
+}
+.landing-section .alur-section .container-md .alur-bx .card .body p {
+  margin-top: 10px;
+  color: #666;
+  font-size: 14px;
+  line-height: 24px;
+}
+
 @media only screen and (max-width: 992px) {
   .container-sm {
     width: 90%;
@@ -1406,5 +1642,328 @@ footer {
   }
   footer .container-md .navbar-menu .nav-link:hover a span {
     color: #EB455F;
+  }
+  .landing-section .navbar_landing {
+    height: 120px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: row;
+  }
+  .landing-section .navbar_landing .nav-logo img {
+    width: 50% !important;
+  }
+  .landing-section .navbar_landing .nav-menu {
+    display: none !important;
+    transition: visibility 0s, opacity 0.5s linear;
+    visibility: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    transition: all ease 0.4s;
+  }
+  .landing-section .navbar_landing .nav-menu .nav-item {
+    margin-left: 40px;
+    font-size: 16px;
+    list-style: none;
+  }
+  .landing-section .navbar_landing .nav-menu .nav-item.active a {
+    color: #EB455F;
+    font-weight: 600;
+  }
+  .landing-section .navbar_landing .nav-menu .nav-item a {
+    text-decoration: none;
+    color: rgba(68, 68, 68, 0.3764705882);
+    font-weight: 400;
+  }
+  .landing-section .navbar_landing .nav-menu .nav-item.btn a {
+    padding: 14px 20px;
+    border-radius: 12px;
+    width: 100%;
+    height: 100%;
+    color: white;
+    background-color: #EB455F;
+    border: 2px solid #EB455F;
+  }
+  .landing-section .navbar_landing .nav-menu .nav-item:hover a {
+    margin-left: 4px;
+    color: #EB455F;
+  }
+  .landing-section .navbar_landing .nav-menu.show {
+    opacity: 1;
+    visibility: visible;
+    display: flex !important;
+    flex-direction: column;
+    align-items: none !important;
+    justify-content: none !important;
+    position: absolute;
+    width: 80%;
+    top: 140px;
+    padding: 40px 0px;
+    background-color: #fff;
+    border-radius: 20px;
+    z-index: 10;
+    box-shadow: 0px 0px 6.5px rgba(0, 0, 0, 0.029), 0px 0px 17.9px rgba(0, 0, 0, 0.038), 0px 0px 43.1px rgba(0, 0, 0, 0.05), 0px 0px 143px rgba(0, 0, 0, 0.1);
+  }
+  .landing-section .navbar_landing .nav-menu.show .nav-item {
+    margin-left: 0;
+    margin-bottom: 20px;
+    width: 80%;
+  }
+  .landing-section .navbar_landing .nav-menu.show .nav-item.btn {
+    margin-top: 20px;
+    width: 80%;
+    margin-bottom: 0;
+  }
+  .landing-section .navbar_landing .nav-menu.show .nav-item.btn a {
+    padding: 8px 20px !important;
+    font-size: 14px;
+    border-radius: 8px;
+  }
+  .landing-section .navbar_landing .menu-btn {
+    background-color: rgba(235, 69, 95, 0.1254901961);
+    width: 42px;
+    height: 42px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    font-size: 28px;
+    color: #EB455F;
+    cursor: pointer;
+    border-radius: 8px;
+    transition: all ease 0.4s;
+  }
+  .landing-section .navbar_landing .menu-btn:hover {
+    background-color: rgba(235, 69, 95, 0.1882352941);
+  }
+  .landing-section .hero {
+    width: 100%;
+    height: 760px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column-reverse;
+  }
+  .landing-section .hero .hero-info {
+    width: 100%;
+  }
+  .landing-section .hero .hero-info .text h2 {
+    font-size: 28px;
+    color: #333;
+    line-height: 38px;
+    font-weight: 700;
+  }
+  .landing-section .hero .hero-info .text h2 span {
+    color: #333;
+  }
+  .landing-section .hero .hero-info .text p {
+    font-size: 14px;
+    margin-top: 10px;
+    color: #888;
+  }
+  .landing-section .hero .hero-info .download {
+    margin-top: 20px;
+  }
+  .landing-section .hero .hero-info .download img {
+    width: 100px;
+    margin-right: 20px;
+  }
+  .landing-section .hero .hero-img {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    margin-bottom: 80px;
+  }
+  .landing-section .hero .hero-img img {
+    width: 90%;
+  }
+  .landing-section .fitur-section {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: column-reverse;
+    height: 1080px;
+  }
+  .landing-section .fitur-section .fitur-list {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: column;
+    flex-wrap: wrap;
+  }
+  .landing-section .fitur-section .fitur-list .card {
+    margin-bottom: 20px;
+    border: 1px solid #eaeaea;
+    width: 100%;
+    padding: 0px !important;
+    height: 180px;
+    display: flex;
+    align-items: none;
+    justify-content: center;
+    flex-direction: column;
+  }
+  .landing-section .fitur-section .fitur-list .card .icon {
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-bottom: 10px;
+  }
+  .landing-section .fitur-section .fitur-list .card .icon img {
+    width: 64px;
+  }
+  .landing-section .fitur-section .fitur-list .card .body {
+    margin-left: 20px;
+    margin-right: 20px;
+  }
+  .landing-section .fitur-section .fitur-list .card .body h3 {
+    font-size: 16px;
+    color: #444;
+  }
+  .landing-section .fitur-section .fitur-list .card .body p {
+    margin-top: 10px;
+    font-size: 14px;
+    color: #888;
+  }
+  .landing-section .fitur-section .fitur-detail {
+    width: 100%;
+  }
+  .landing-section .fitur-section .fitur-detail h5 {
+    color: #EB455F;
+    font-size: 18px;
+    margin-bottom: 10px;
+  }
+  .landing-section .fitur-section .fitur-detail h2 {
+    font-size: 32px;
+    color: #444;
+    margin-bottom: 20px;
+  }
+  .landing-section .fitur-section .fitur-detail p {
+    font-size: 14px;
+    line-height: 24px;
+    color: #888;
+    text-align: justify;
+  }
+  .landing-section .tentang-section {
+    margin-top: 50px;
+    width: 100%;
+    height: 680px;
+    position: relative;
+  }
+  .landing-section .tentang-section .container-md {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: column-reverse;
+  }
+  .landing-section .tentang-section .container-md .tentang-info {
+    width: 100%;
+  }
+  .landing-section .tentang-section .container-md .tentang-info h5 {
+    color: #EB455F;
+    font-size: 18px;
+    margin-bottom: 10px;
+  }
+  .landing-section .tentang-section .container-md .tentang-info h2 {
+    font-size: 32px;
+    color: #444;
+    margin-bottom: 20px;
+  }
+  .landing-section .tentang-section .container-md .tentang-info p {
+    font-size: 14px;
+    line-height: 24px;
+    color: #888;
+    text-align: justify;
+    margin-bottom: 40px;
+  }
+  .landing-section .tentang-section .container-md .tentang-info .btn {
+    padding: 14px 20px;
+    border-radius: 12px;
+    width: 100%;
+    height: 100%;
+    color: white;
+    background-color: #EB455F;
+    border: 2px solid #EB455F;
+    text-decoration: none;
+    transition: all ease 0.4s;
+  }
+  .landing-section .tentang-section .container-md .tentang-info .btn:hover {
+    background-color: #d33c53;
+  }
+  .landing-section .tentang-section .container-md .mockup-img {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+  }
+  .landing-section .tentang-section .container-md .mockup-img img {
+    width: 80%;
+  }
+  .landing-section .tentang-section .gradient {
+    position: absolute;
+    top: -20px;
+    bottom: 0;
+    right: 0;
+    z-index: -10;
+    height: 54%;
+    width: 400px;
+    background-image: linear-gradient(270deg, rgba(235, 69, 95, 0.6) -40.07%, rgba(235, 69, 95, 0) 79.04%);
+  }
+  .landing-section .alur-section {
+    width: 100%;
+    height: 1060px;
+  }
+  .landing-section .alur-section .container-md {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+  }
+  .landing-section .alur-section .container-md .title {
+    margin: 0 auto;
+    text-align: left;
+    width: 100%;
+  }
+  .landing-section .alur-section .container-md .title h4 {
+    font-size: 18px;
+    color: #EB455F;
+  }
+  .landing-section .alur-section .container-md .title h2 {
+    margin-top: 20px;
+    font-size: 24px;
+    color: #222;
+  }
+  .landing-section .alur-section .container-md .alur-bx {
+    margin-top: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: column;
+  }
+  .landing-section .alur-section .container-md .alur-bx .card {
+    width: 100%;
+    margin-bottom: 42px;
+  }
+  .landing-section .alur-section .container-md .alur-bx .card .icon {
+    width: 42px;
+    height: 42px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    font-size: 22px;
+    border-radius: 12px;
+    color: #EB455F;
+    background-color: rgba(235, 69, 95, 0.1254901961);
+    margin-bottom: 20px;
+  }
+  .landing-section .alur-section .container-md .alur-bx .card .body p {
+    margin-top: 10px;
+    color: #666;
+    font-size: 14px;
+    line-height: 24px;
   }
 }/*# sourceMappingURL=style.css.map */
