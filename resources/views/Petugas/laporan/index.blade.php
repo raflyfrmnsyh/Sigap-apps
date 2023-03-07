@@ -21,6 +21,7 @@
                     <div class="mt-2 input-group">
                         <select class="form-select" id="inputGroupSelect01" name="status">
                           <option selected>Pilih status Pengaduan</option>
+                          <option value="All">Semua</option>
                           <option value="prosess">Prosess</option>
                           <option value="terima">Diterima</option>
                           <option value="tolak">Ditolak</option>

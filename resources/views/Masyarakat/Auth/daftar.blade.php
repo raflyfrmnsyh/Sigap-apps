@@ -13,6 +13,9 @@
                 <input type="text" name="nik" id="nik" required="required" value="{{ old('nik') }}" maxlength="16">
                 <span>NIK</span>
             </label>
+                @if(session()->has('nik_tersedia'))
+                    <span class="error_message">{{ session('tersedia') }}</span>
+                @endif
             @error('nik')
                     <span class="error_message">{{ $message }}</span>
                 @enderror
@@ -27,6 +30,10 @@
                 <input type="text" name="username" id="Username" required="required" value="{{ old('username') }}">
                 <span>Username</span>
             </label>
+
+                @if(session()->has('tersedia'))
+                    <span class="error_message">{{ session('tersedia') }}</span>
+                @endif
                 @error('username')
                     <span class="error_message">{{ $message }}</span>
                 @enderror

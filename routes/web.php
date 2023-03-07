@@ -19,16 +19,13 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+
 Route::get('/', function () {
-    return view('welcome');
-});
-
-
-Route::get('/landing-page', function() {
     return view('landing-page', [
         'title' => 'Landing Page Sigap'
     ]);
 });
+
 
 Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
 Route::get('/admin/logout', [AuthController::class, 'logoutAdmin'])->name('admin.logout');

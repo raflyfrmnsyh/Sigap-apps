@@ -25,11 +25,19 @@ class LaporanController extends Controller
         $count = 1;
         $status = $request->status;
 
-        $data = Pengaduan::with('tanggapan')
-            ->where('status', $status)
-            ->whereBetween('tgl_pengaduan', [$awal, $akhir])
-            ->latest()
-            ->get();
+        $all = Pengaduan::all()->toArray();
+
+        if ($status == 'all') {
+            $data = $all;
+        } else {
+            $data = Pengaduan::with('tanggapan')
+                ->where('status', $status)
+                ->whereBetween('tgl_pengaduan', [$awal, $akhir])
+                ->latest()
+                ->get();
+        }
+
+
 
         return view('Petugas\laporan\cetak', [
             'title' => 'Cetak Laporan',

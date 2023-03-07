@@ -270,7 +270,7 @@ class PetugasController extends Controller
     {
         $request->validate([
             'name' => ['required', 'max:30'],
-            'username' => ['required', 'min:5', 'max:20'],
+            'username' => ['required', 'min:5', 'max:20', 'unique:users,username'],
             'telp' => ['required', 'min:12', 'max:14'],
             'password' => ['required', 'min:4', 'max:225']
         ]);
@@ -295,13 +295,11 @@ class PetugasController extends Controller
     public function viewDataPetugas()
     {
 
+
         $data = User::where('role_id', 1)
             ->orWhere('role_id', 2)
             ->with('petugas')
             ->paginate(5);
-
-        // $data = Petugas::with('user')
-        //     ->paginate(5);
 
         $count = 1;
 

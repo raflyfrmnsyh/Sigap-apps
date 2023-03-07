@@ -87,15 +87,7 @@
               </li>
             </ul>
           </li>
-          <li class="menu-header small text-uppercase">
-            <span class="menu-header-text">Settings</span>
-          </li>
-          <li class="menu-item">
-            <a href="/site-setting" class="menu-link">
-              <i class="menu-icon tf-icons bx bx-server"></i>
-              <div data-i18n="Analytics">Site Settings</div>
-            </a>
-          </li>  
+           
       @endif
       <li class="menu-header small text-uppercase">
         <span class="menu-header-text">Logout</span>

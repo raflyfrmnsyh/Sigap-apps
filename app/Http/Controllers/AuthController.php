@@ -51,9 +51,9 @@ class AuthController extends Controller
     {
 
         $request->validate([
-            'nik' => 'required|max:16|min:15',
+            'nik' => 'required|max:16|min:15|unique:masyarakat,nik',
             'name' => 'required',
-            'username' => 'required|min:5',
+            'username' => 'required|min:5|unique:users,username',
             'telp' => 'required|max:13',
             'password' => 'required|min:5'
         ]);
@@ -62,7 +62,7 @@ class AuthController extends Controller
 
         $request->merge([
             'password' => $request['password'],
-            'role_id' => 3
+            'role_id' => 3,
         ]);
 
         // Masukan data ke Database
@@ -75,7 +75,7 @@ class AuthController extends Controller
 
         Masyarakat::create($request->all())->only('user_id', 'nik', 'name', 'telp');
 
-        return redirect()->intended('/login')->with('success', 'Daftar Berhasil, silahakan Login!');
+        return redirect('/login')->with('success', 'Daftar Berhasil, silahakan Login!');
 
         // $data = $request->all();
 
