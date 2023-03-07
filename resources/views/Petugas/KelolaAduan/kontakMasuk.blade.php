@@ -18,6 +18,7 @@
                 <th>Tanggal Laporan</th>
                 <th>Username</th>
                 <th>Status</th>
+                <th>Published</th>
                 <th>Actions</th>
                 
               </tr>
@@ -35,6 +36,14 @@
                                 {{ $item->masyarakat->user->username }}
                             </td>
                             <td><span class="badge bg-label-warning me-1">{{ $item->status }}</span></td>
+                            <td>
+                                @if ($item->publish == 'public')
+                                    <span class="badge bg-label-info me-1">{{ $item->publish }}</span>
+                                @endif
+                                @if ($item->publish == 'private')
+                                    <span class="badge bg-label-secondary  me-1">{{ $item->publish }}</span>
+                                @endif
+                            </td>
                             <td>
                             <div class="dropdown">
                                 <button type="button" class="btn p-0 dropdown-toggle hide-arrow" data-bs-toggle="dropdown">

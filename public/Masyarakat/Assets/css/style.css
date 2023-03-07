@@ -588,7 +588,7 @@ section.feed-container .container-md .card-feed .card-header .profil .profil_inf
 section.feed-container .container-md .card-feed .feed-img {
   margin-bottom: 20px;
   width: 100%;
-  height: 360px;
+  height: 280px;
   background-color: #eaeaea;
   display: flex;
   align-items: center;
@@ -609,6 +609,32 @@ section.feed-container .container-md .card-feed .feed-body {
   padding-bottom: 20px;
   text-align: justify;
   border-bottom: 1px solid #ddd;
+}
+section.feed-container .container-md .card-feed .feed-body .feed-value {
+  word-wrap: break-word;
+  text-align: left;
+  font-size: 14px;
+  line-height: 24px;
+}
+section.feed-container .container-md .card-feed .feed-body .feed-value .head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: row;
+  margin-bottom: 20px;
+}
+section.feed-container .container-md .card-feed .feed-body .feed-value .head .title {
+  color: #444;
+}
+section.feed-container .container-md .card-feed .feed-body .feed-value .head .location {
+  display: flex;
+  align-items: center;
+  justify-content: end;
+  flex-direction: row;
+}
+section.feed-container .container-md .card-feed .feed-body .feed-value .head .location i {
+  font-size: 18px;
+  margin-left: 10px;
 }
 section.feed-container .container-md .card-feed .feed-tanggapan {
   width: 100%;

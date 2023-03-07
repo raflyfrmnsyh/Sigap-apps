@@ -23,6 +23,7 @@ return new class extends Migration
             $table->text('isi_laporan');
             $table->string('lokasi');
             $table->enum('status', ['prosess', 'terima', 'tolak']);
+            $table->enum('publish', ['public', 'private']);
             $table->timestamps();
         });
     }

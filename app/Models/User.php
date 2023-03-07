@@ -50,6 +50,11 @@ class User extends Authenticatable
         return $this->hasOne(Masyarakat::class, 'user_id', 'id');
     }
 
+    public function pengaduan()
+    {
+        return $this->belongsTo(Pengaduan::class, 'id');
+    }
+
     public function petugas()
     {
         return $this->hasOne(Petugas::class, 'user_id', 'id');

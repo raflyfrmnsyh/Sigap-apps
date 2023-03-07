@@ -2,6 +2,8 @@
 
 @section('content')
 
+{{-- @dd($data) --}}
+
 <header>
     <div class="container-md">
         <div class="navbar-top">
@@ -27,41 +29,63 @@
 
 <section class="feed-container">
     <div class="container-md">
-        @for ($i = 0; $i < 10; $i++)
+        @foreach ($data as $item)
+        {{-- @dd($item) --}}
             <div class="card-feed">
                 <div class="card-header">
                     <div class="profil">
-                        <img src="Masyarakat/Assets/img/pp2.png" alt="profil" class="profil-img">
+                        @if ($item->masyarakat->user->gender == 'tidak diketahui')
+                            <img src="Masyarakat/Assets/img/unknown.png" alt="profil" class="profil-img"> 
+                        @endif
+                        @if ($item->masyarakat->user->gender == 'pria')
+                            <img src="Masyarakat/Assets/img/pp.png" alt="profil" class="profil-img"> 
+                        @endif
+                        @if ($item->masyarakat->user->gender == 'wanita')
+                            <img src="Masyarakat/Assets/img/pp2.png" alt="profil" class="profil-img"> 
+                        @endif
                         <div class="profil_info">
-                            <span>{{ "@" }}username</span>
-                            <h4>nama pengguna</h4>
+                            <span>{{ "@" . $item->masyarakat->user->username }}</span>
+                            <h4>{{ $item->masyarakat->name }}</h4>
                         </div>
                     </div>
                     <div class="date">
-                        <span>1 mnt ago</span>
+                        <span>{{ $item->updated_at->diffForHumans() }}</span>
                     </div>
                 </div>
                 <div class="feed-img">
-                    <img src="https://www.suarasurabaya.net/wp-content/uploads/2021/01/WhatsApp-Image-2021-01-18-at-08.44.56-2-840x493.jpeg" alt="img-pengaduan">
+                    <img src="../../storage/{{ $item->foto }}" alt="img-pengaduan">
                 </div>
                 <div class="feed-body">
 
                     <div class="feed-value">
+                        <div class="head">
+                            <div class="title">
+                                <h3>{{ $item->judul_laporan }}</h3>
+                            </div>
+                            <div class="location">
+                                <span>{{ $item->lokasi }}</span>
+                                <i class="bx bx-map"></i>
+                            </div>
+                        </div>
                         <p>
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Id ipsam odit repellendus dolore nemo quisquam assumenda obcaecati ut minima doloribus expedita ea, praesentium minus ad eveniet earum, magni, maxime sint fuga sed laboriosam voluptates! Velit modi similique animi molestias consectetur esse, rem quisquam dolor odit.
+                           {{ $item->isi_laporan }}
                         </p>
                     </div>
                 </div>
-                <div class="feed-tanggapan">
-                    <span><b>Di Tanggapi oleh :</b> Nama Petugas</span>
-                    <div class="tanggapan-value">
-                        <p>
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta consequatur tempore nisi praesentium nemo ratione, temporibus fugiat sapiente doloribus neque in dolorum non!
-                        </p>
+                @if (!is_null($item->tanggapan))
+                {{-- @dd($item->tanggapan) --}}
+                    <div class="feed-tanggapan">
+                        <span><b>Di Tanggapi oleh :</b>{{ $item->tanggapan->username }}</span>
+                        <div class="tanggapan-value">
+                            <p>
+                                {{ $item->tanggapan->tanggapan }}
+                            </p>
+                        </div>
                     </div>
-                </div>
+                @endif
             </div>
-        @endfor
+        @endforeach
+            
     </div>
 </section>
 

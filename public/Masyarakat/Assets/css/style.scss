@@ -705,7 +705,7 @@ section.feed-container{
             .feed-img{
                 margin-bottom: 20px;
                 width: 100%;
-                height: 360px;
+                height: 280px;
                 background-color: #eaeaea;
                 @include d-flex();
                 img{
@@ -723,7 +723,26 @@ section.feed-container{
                 padding-bottom: 20px;
                 text-align: justify;
                 border-bottom: 1px solid #ddd;
-
+                .feed-value{
+                    word-wrap: break-word;
+                    text-align: left;
+                    font-size: 14px;
+                    line-height: 24px;
+                    .head{
+                        @include d-flex($justify : space-between);
+                        margin-bottom: 20px;
+                        .title{
+                            color: #444;
+                        }
+                        .location{
+                            @include d-flex($justify : end);
+                            i{
+                                font-size: 18px;
+                                margin-left: 10px;
+                            }
+                        }
+                    }
+                }
             }
 
             .feed-tanggapan{
@@ -1751,7 +1770,8 @@ footer {
                     padding-bottom: 20px;
                     text-align: justify;
                     border-bottom: 1px solid #ddd;
-    
+                    
+                    
                 }
     
                 .feed-tanggapan{

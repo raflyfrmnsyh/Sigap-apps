@@ -14,6 +14,14 @@
                 </div>
                 <form action="{{ route('pengaduan.masyarakat') }}" class="form-pengaduan_form" method="POST" enctype="multipart/form-data">
                     @csrf
+                        <select name="publish" id="" class="input-pengaduan-group" style="padding:0px 20px;outline:none;-webkit-appearance: none;
+                        -moz-appearance: none;
+                        text-indent: 1px;
+                        text-overflow: '';color:#818181;">
+                            <option selected >Published</option>
+                            <option value="public">Public</option>
+                            <option value="public">Private</option>
+                        </select>
                     <div class="input-pengaduan-group">
                         <input type="text" name="judul_laporan" placeholder="Masukan Judul Laporan" value="{{ old('judul_laporan') }}">
                     </div>

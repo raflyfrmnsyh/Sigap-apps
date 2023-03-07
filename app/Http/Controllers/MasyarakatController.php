@@ -59,7 +59,9 @@ class MasyarakatController extends Controller
     {
         return view('Masyarakat\Pages\Feed\index', [
             'title' => 'Feed Sigap',
-            'data' => Pengaduan::all()
+            'data' => Pengaduan::where('publish', 'public')
+                ->with('tanggapan')
+                ->get()
         ]);
     }
 }

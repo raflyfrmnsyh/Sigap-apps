@@ -75,7 +75,7 @@ class AuthController extends Controller
 
         Masyarakat::create($request->all())->only('user_id', 'nik', 'name', 'telp');
 
-        return redirect('/login')->with('success', 'Daftar Berhasil, silahakan Login!');
+        return redirect()->intended('/login')->with('success', 'Daftar Berhasil, silahakan Login!');
 
         // $data = $request->all();
 
