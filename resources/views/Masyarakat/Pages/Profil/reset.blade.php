@@ -5,7 +5,7 @@
 <header class="header2">
     <div class="container-md">
         <nav class="navbar-2">
-            <a href="{{ route('akun.saya.masyarakat') }}" class="back _Btn">
+            <a href="{{ route('profil.masyarakat') }}" class="back _Btn">
                 <i class='bx bx-chevron-left'></i>
                 <!-- <p>bc</p> -->
             </a>

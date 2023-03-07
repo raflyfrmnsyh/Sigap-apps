@@ -23,7 +23,8 @@ class Pengaduan extends Model
         'tgl_pengaduan',
         'lokasi',
         'foto',
-        'status'
+        'status',
+        'publish'
     ];
 
 

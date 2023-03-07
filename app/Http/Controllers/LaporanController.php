@@ -25,10 +25,9 @@ class LaporanController extends Controller
         $count = 1;
         $status = $request->status;
 
-        $all = Pengaduan::all()->toArray();
 
-        if ($status == 'all') {
-            $data = $all;
+        if ($status == 'All') {
+            $data = Pengaduan::with('tanggapan')->get();
         } else {
             $data = Pengaduan::with('tanggapan')
                 ->where('status', $status)

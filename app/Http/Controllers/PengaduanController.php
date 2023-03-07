@@ -11,7 +11,7 @@ class PengaduanController extends Controller
 
     public function store(Request $request)
     {
-
+        // return $request;
         $request->validate([
             'judul_laporan' => 'required|max:225',
             'isi_laporan' => 'required',
@@ -21,7 +21,8 @@ class PengaduanController extends Controller
 
         $request->merge([
             'masyarakat_id' => auth()->user()->masyarakat->id,
-            'nik' => auth()->user()->masyarakat->nik
+            'nik' => auth()->user()->masyarakat->nik,
+            'publish' => $request->publish
         ]);
 
         $foto = $request->file('foto');

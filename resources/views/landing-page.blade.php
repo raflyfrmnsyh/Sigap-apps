@@ -9,7 +9,7 @@
             </a>
             <ul class="nav-menu">
                 <li class="nav-item active">
-                    <a href="/">Beranda</a>
+                    <a href="/">Home</a>
                 </li>
                 <li class="nav-item">
                     <a href="#fitur">Fitur Sigap</a>

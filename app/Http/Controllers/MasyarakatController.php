@@ -61,6 +61,7 @@ class MasyarakatController extends Controller
             'title' => 'Feed Sigap',
             'data' => Pengaduan::where('publish', 'public')
                 ->with('tanggapan')
+                ->latest()
                 ->get()
         ]);
     }

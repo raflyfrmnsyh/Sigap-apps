@@ -20,7 +20,7 @@
                         text-overflow: '';color:#818181;">
                             <option selected >Published</option>
                             <option value="public">Public</option>
-                            <option value="public">Private</option>
+                            <option value="private">Private</option>
                         </select>
                     <div class="input-pengaduan-group">
                         <input type="text" name="judul_laporan" placeholder="Masukan Judul Laporan" value="{{ old('judul_laporan') }}">

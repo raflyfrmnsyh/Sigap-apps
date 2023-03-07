@@ -56,6 +56,7 @@ class ProfilController extends Controller
     public function updatePassword(Request $request)
     {
         // return $request;
+
         $user = Auth::user();
 
         $pwOld = $user->password;
@@ -68,20 +69,18 @@ class ProfilController extends Controller
         ]);
 
         $pw1 = $request['password-confirm'];
-        $pw_new = Hash::make($request['password-new']);
+        $pw_new = Hash::make($request['password-baru']);
 
+        $checkPw = Hash::check($pw1, $pwOld);
 
-        if (Hash::check($pw1, $pwOld)) {
-
-            User::where('id', $user->id)
-                ->update(['password' => $pw_new]);
-
-            // dd("password sama");
-
-            return redirect()->back()->with('success', 'Password Berhasil Dirubah!');
-        } else {
+        if (!$checkPw) {
             return redirect()->back()->with('fail', 'Password tidak sama');
         }
+
+        User::where('id', $user->id)
+            ->update(['password' => $pw_new]);
+
+        return redirect()->back()->with('success', 'Password Berhasil Dirubah!');
     }
 
 
