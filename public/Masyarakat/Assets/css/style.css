@@ -259,7 +259,7 @@ header.header2 .navbar-2 ._Btn i {
   font-size: 18px;
 }
 header.header2 .navbar-2 span {
-  font-size: 24px;
+  font-size: 18px;
   font-weight: 600;
   color: #EB455F;
 }
@@ -474,13 +474,18 @@ section.main-berita .detail_berita .detail-body .detail-paragraf p {
 }
 
 .detail_pengaduan {
+  width: 100%;
   margin: 50px 0px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: row;
 }
 .detail_pengaduan .img-bx {
   margin: 50px 0px;
   width: 100%;
-  height: 100%;
-  background-color: #ddd;
+  width: 30%;
+  height: 400px;
 }
 .detail_pengaduan .img-bx img {
   width: 100%;
@@ -489,24 +494,25 @@ section.main-berita .detail_berita .detail-body .detail-paragraf p {
      object-fit: cover;
   cursor: pointer;
 }
-
-.detail-bx {
+.detail_pengaduan .detail-bx {
   display: flex;
-}
-.detail-bx .detail-body {
+  flex-direction: column;
   width: 60%;
 }
-.detail-bx .detail-body .detail-date {
+.detail_pengaduan .detail-bx .detail-body {
+  width: 100%;
+}
+.detail_pengaduan .detail-bx .detail-body .detail-date {
   font-size: 14px;
   padding: 10px 0px;
 }
-.detail-bx .detail-body .detail-title {
+.detail_pengaduan .detail-bx .detail-body .detail-title {
   margin-bottom: 20px;
 }
-.detail-bx .detail-body .detail-paragraf {
+.detail_pengaduan .detail-bx .detail-body .detail-paragraf {
   width: 92%;
 }
-.detail-bx .detail-body .detail-paragraf p {
+.detail_pengaduan .detail-bx .detail-body .detail-paragraf p {
   word-wrap: break-word;
   font-size: 14px;
   font-weight: 400;
@@ -514,29 +520,30 @@ section.main-berita .detail_berita .detail-body .detail-paragraf p {
   text-align: justify;
   color: #666;
 }
-.detail-bx .tanggapan-bx {
-  width: 40%;
+.detail_pengaduan .detail-bx .tanggapan-bx {
+  margin-top: 40px;
+  width: 89%;
   padding: 28px;
   border: 1px solid #ddd;
 }
-.detail-bx .tanggapan-bx h3 {
+.detail_pengaduan .detail-bx .tanggapan-bx h3 {
   font-size: 14px;
   margin-bottom: 20px;
 }
-.detail-bx .tanggapan-bx p {
+.detail_pengaduan .detail-bx .tanggapan-bx p {
   font-size: 14px;
   text-align: justify;
   line-height: 24px;
   color: #666;
   margin-bottom: 20px;
 }
-.detail-bx .tanggapan-bx span {
+.detail_pengaduan .detail-bx .tanggapan-bx span {
   font-size: 14px;
   color: #444;
 }
 
 section.feed-container .container-md {
-  width: 40%;
+  width: 30%;
   height: 100%;
 }
 section.feed-container .container-md .card-feed {
@@ -588,7 +595,7 @@ section.feed-container .container-md .card-feed .card-header .profil .profil_inf
 section.feed-container .container-md .card-feed .feed-img {
   margin-bottom: 20px;
   width: 100%;
-  height: 280px;
+  height: 472px;
   background-color: #eaeaea;
   display: flex;
   align-items: center;
@@ -916,7 +923,7 @@ section.history .container-md .history-bx .card-history .card-body .card-body_he
   flex-direction: row;
 }
 section.history .container-md .history-bx .card-history .card-body .card-body_head ._title {
-  margin-bottom: 20px;
+  margin-bottom: 10px;
 }
 section.history .container-md .history-bx .card-history .card-body .card-body_head ._title .date {
   font-size: 12px;
@@ -934,10 +941,46 @@ section.history .container-md .history-bx .card-history .card-body .card-body_he
   color: #EB455F;
 }
 section.history .container-md .history-bx .card-history .card-body .card-body_text {
-  font-size: 12px;
+  font-size: 14px;
   text-align: justify;
   line-height: 22px;
   word-wrap: break-word;
+  margin-bottom: 30px;
+  margin-top: 0px;
+}
+section.history .container-md .history-bx .card-history .card-bottom {
+  display: flex;
+}
+section.history .container-md .history-bx .card-history .card-bottom .btn-selengkapnya {
+  background-color: #EB455F;
+  color: #fff;
+  cursor: pointer;
+  padding: 6px 10px;
+  font-size: 14px;
+  text-decoration: none;
+  transition: all ease 0.4s;
+  border-radius: 2px;
+  right: 0;
+}
+section.history .container-md .history-bx .card-history .card-bottom .btn-selengkapnya:hover {
+  background-color: #d3384f;
+}
+section.history .container-md .history-bx .card-history .card-bottom .btn-edit {
+  background-color: #4556eb;
+  padding: 6px 8px;
+  font-size: 14px;
+  color: #fff;
+  margin-left: 10px;
+}
+section.history .container-md .history-bx .card-history .card-bottom .btn-hapus {
+  outline: none;
+  border: none;
+  background-color: #eb4545;
+  padding: 8px;
+  margin-left: 4px;
+  font-size: 14px;
+  cursor: pointer;
+  color: #fff;
 }
 
 .badge {
@@ -1539,6 +1582,7 @@ footer {
   }
   section.profil-saya .container-md .profil-detail {
     display: flex;
+    width: 60%;
     align-items: center;
     flex-direction: column;
     padding: 8px 24px;
@@ -1590,7 +1634,7 @@ footer {
   }
   section.history .container-md .history-bx .card-history .card-img img {
     width: 100%;
-    height: 100%;
+    height: 360px;
     -o-object-fit: cover;
        object-fit: cover;
   }
@@ -1620,6 +1664,13 @@ footer {
   }
   section.history .container-md .history-bx .card-history .card-body .card-body_head ._title a:hover {
     color: #EB455F;
+  }
+  section.history .container-md .history-bx .card-history .card-body .card-body_head .status_pengaduan {
+    width: 50%;
+    text-align: center;
+  }
+  section.history .container-md .history-bx .card-history .card-body .card-body_head .status_pengaduan .badge {
+    padding: 10px 0px;
   }
   section.main-berita {
     margin-top: 40px;
@@ -1683,19 +1734,81 @@ footer {
        object-fit: cover;
   }
   section.main-berita .detail_berita .detail-body {
+    width: 100% !important;
+    background-color: yellow !important;
     margin-top: 40px;
     padding: 0px 10px;
   }
   section.main-berita .detail_berita .detail-body p {
     text-align: justify;
   }
-  .detail-bx {
+  .detail_pengaduan {
+    width: 100%;
+    margin: 50px 0px;
     display: flex;
+    align-items: center;
+    justify-content: space-between;
     flex-direction: column;
   }
-  .detail-bx .tanggapan-bx {
-    margin-top: 50px;
-    width: auto;
+  .detail_pengaduan .img-bx {
+    margin-bottom: 50px;
+    width: 100%;
+    width: 90%;
+    height: 420px;
+  }
+  .detail_pengaduan .img-bx img {
+    width: 100%;
+    height: 100%;
+    -o-object-fit: cover;
+       object-fit: cover;
+    cursor: pointer;
+  }
+  .detail_pengaduan .detail-bx {
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+  }
+  .detail_pengaduan .detail-bx .detail-body {
+    width: 100%;
+  }
+  .detail_pengaduan .detail-bx .detail-body .detail-date {
+    font-size: 14px;
+    padding: 10px 0px;
+  }
+  .detail_pengaduan .detail-bx .detail-body .detail-title {
+    margin-bottom: 20px;
+  }
+  .detail_pengaduan .detail-bx .detail-body .detail-paragraf {
+    width: 92%;
+  }
+  .detail_pengaduan .detail-bx .detail-body .detail-paragraf p {
+    word-wrap: break-word;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 24px;
+    text-align: justify;
+    color: #666;
+  }
+  .detail_pengaduan .detail-bx .tanggapan-bx {
+    margin-top: 40px;
+    width: 84%;
+    padding: 28px;
+    border: 1px solid #ddd;
+  }
+  .detail_pengaduan .detail-bx .tanggapan-bx h3 {
+    font-size: 14px;
+    margin-bottom: 20px;
+  }
+  .detail_pengaduan .detail-bx .tanggapan-bx p {
+    font-size: 14px;
+    text-align: justify;
+    line-height: 24px;
+    color: #666;
+    margin-bottom: 20px;
+  }
+  .detail_pengaduan .detail-bx .tanggapan-bx span {
+    font-size: 14px;
+    color: #444;
   }
   .dataDiri-info_field ._field {
     width: 93% !important;

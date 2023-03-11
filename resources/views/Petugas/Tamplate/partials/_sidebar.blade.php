@@ -16,13 +16,13 @@
       <li class="menu-header small text-uppercase">
         <span class="menu-header-text">APPS</span>
       </li>
-      <li class="menu-item">
+      <li class="menu-item {{ Request::is('admin/dashboard') ? 'active' : '' }}">
         <a href="{{ route('admin.dashboard') }}" class="menu-link">
           <i class="menu-icon tf-icons bx bx-home-circle"></i>
           <div data-i18n="Analytics">Dashboard</div>
         </a>
       </li>
-      <li class="menu-item">
+      <li class="menu-item {{ Route::is('pengaduan.masuk') || Route::is('pengaduan.ditanggapi') || Route::is('pengaduan.ditolak') ? 'active' : '' }}">
         <a href="javascript:void(0);" class="menu-link menu-toggle">
           <i class="menu-icon tf-icons bx bx-customize"></i>
           <div data-i18n="">Pengaduan</div>
@@ -50,13 +50,13 @@
           <li class="menu-header small text-uppercase">
             <span class="menu-header-text">Management</span>
           </li>
-          <li class="menu-item">
+          <li class="menu-item {{ Route::is('generate.laporan') ? 'active' : '' }}">
             <a href="{{ route('generate.laporan') }}" class="menu-link">
               <i class="menu-icon tf-icons bx bx-file"></i>
               <div data-i18n="Analytics">Generate Laporan</div>
             </a>
           </li>
-          <li class="menu-item">
+          <li class="menu-item {{ Route::is('register.petugas') || Route::is('view.ubah.petugas') || Route::is('data.petugas') ? 'active' : '' }}">
             <a href="javascript:void(0);" class="menu-link menu-toggle">
               <i class="menu-icon tf-icons bx bx-user-pin"></i>
               <div data-i18n="">Data Petugas</div>
@@ -74,7 +74,7 @@
               </li>
             </ul>
           </li>
-          <li class="menu-item">
+          <li class="menu-item {{ Route::is('kelola.masyarakat') ? 'active' : '' }}">
             <a href="javascript:void(0);" class="menu-link menu-toggle">
               <i class="menu-icon tf-icons bx bx-user"></i>
               <div data-i18n="">Data Masyarakat</div>

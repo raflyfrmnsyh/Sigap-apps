@@ -313,6 +313,7 @@ header {
                 text-decoration: none;
             }
 
+
             ._Btn {
                 width: 42px;
                 height: 42px;
@@ -333,7 +334,7 @@ header {
             }
 
             span {
-                font-size: 24px;
+                font-size: 18px;
                 font-weight: $fw-semibold;
                 color: $primary-color;
             }
@@ -588,13 +589,17 @@ section.main-berita {
         }
     }
 }
+
 .detail_pengaduan{
+    width: 100%;
     margin: 50px 0px;
+    @include d-flex($justify: space-between);
     .img-bx{
         margin: 50px 0px;
         width: 100%;
-        height: 100%;
-        background-color: #ddd;
+        width:30%;
+        height: 400px;
+        // background-color: #ddd;
 
         img{
             width: 100%;
@@ -603,60 +608,67 @@ section.main-berita {
             cursor: pointer;
         }
     }
-}
-.detail-bx{
-    display: flex;
-    // background-color: salmon;
-
-    .detail-body{
-        width: 60%;
-        .detail-date{
-            font-size: 14px;
-            padding: 10px 0px;
-        }
-        .detail-title{
-            margin-bottom: 20px;
-        }
-        .detail-paragraf{
-            width: 92%;
-            p{
-                word-wrap: break-word;
+    .detail-bx{
+        display: flex;
+        flex-direction: column;
+        width:60%;
+    
+        .detail-body{
+            width: 100%;
+    
+            .detail-date{
                 font-size: 14px;
-                font-weight: $fw-reguler;
-                line-height: 24px;
+                padding: 10px 0px;
+            }
+            .detail-title{
+                margin-bottom: 20px;
+            }
+            .detail-paragraf{
+                width: 92%;
+                p{
+                    word-wrap: break-word;
+                    font-size: 14px;
+                    font-weight: $fw-reguler;
+                    line-height: 24px;
+                    text-align: justify;
+                    color: #666;
+                }
+            }
+        }
+        .tanggapan-bx{
+            margin-top: 40px;
+            width: 89%;
+            padding: 28px;
+            border: 1px solid #ddd;
+            h3{
+                font-size: 14px;
+                margin-bottom: 20px;
+            }
+            p{
+                font-size: 14px;
                 text-align: justify;
+                line-height: 24px;
                 color: #666;
+                margin-bottom: 20px;
+            }
+            span{
+                font-size: 14px;
+                color: #444;
             }
         }
     }
-    .tanggapan-bx{
-        width: 40%;
-        padding: 28px;
-        border: 1px solid #ddd;
-        h3{
-            font-size: 14px;
-            margin-bottom: 20px;
-        }
-        p{
-            font-size: 14px;
-            text-align: justify;
-            line-height: 24px;
-            color: #666;
-            margin-bottom: 20px;
-        }
-        span{
-            font-size: 14px;
-            color: #444;
-        }
-    }
+
+
 }
+
+
 
 
 // Feed Style
 
 section.feed-container{
     .container-md{
-        width:40%;
+        width:30%;
         height: 100%;
 
         .card-feed{
@@ -705,7 +717,7 @@ section.feed-container{
             .feed-img{
                 margin-bottom: 20px;
                 width: 100%;
-                height: 280px;
+                height: 472px;
                 background-color: #eaeaea;
                 @include d-flex();
                 img{
@@ -779,7 +791,6 @@ section.profil-saya {
             box-shadow: 0px 0px 10px 1px rgba(0, 0, 0, 0.1);
             border-radius: 12px;
             padding: 30px;
-
             .img-profil {
                 width: 140px;
                 background-color: #eaeaea;
@@ -1029,7 +1040,6 @@ section.history {
 
                 .card-img {
                     width: 20%;
-
                     img {
                         width: 180px;
                         height: 180px;
@@ -1044,7 +1054,7 @@ section.history {
                         @include d-flex($justify : space-between, $align: top);
 
                         ._title {
-                            margin-bottom: 20px;
+                            margin-bottom: 10px;
 
                             .date {
                                 font-size: 12px;
@@ -1068,10 +1078,49 @@ section.history {
                     }
 
                     .card-body_text {
-                        font-size: 12px;
+                        font-size: 14px;
                         text-align: justify;
                         line-height: 22px;
                         word-wrap: break-word;
+                        margin-bottom: 30px;
+                        margin-top: 0px;
+                    }
+                }
+
+                .card-bottom{
+                    display: flex;
+                    
+                    .btn-selengkapnya{
+                        background-color: $primary-color;
+                        color: #fff;
+                        cursor: pointer;
+                        padding: 6px 10px;
+                        font-size: 14px;
+                        text-decoration: none;
+                        transition: all ease .4s;
+                        border-radius: 2px;
+                        right: 0;
+
+                        &:hover{
+                            background-color: #d3384f;
+                        }
+                    }
+                    .btn-edit{
+                        background-color: #4556eb;
+                        padding: 6px 8px;
+                        font-size: 14px;
+                        color: #fff;
+                        margin-left: 10px;
+                    }
+                    .btn-hapus{
+                        outline: none;
+                        border: none;
+                        background-color: #eb4545;
+                        padding:8px;
+                        margin-left: 4px;
+                        font-size: 14px;
+                        cursor: pointer;
+                        color: #fff;
                     }
                 }
             }
@@ -1801,6 +1850,7 @@ footer {
         .container-md {
             .profil-detail {
                 display: flex;
+                width:60%;
                 align-items: center;
                 flex-direction: column;
                 padding: 8px 24px;
@@ -1865,7 +1915,7 @@ footer {
 
                         img {
                             width: 100%;
-                            height: 100%;
+                            height: 360px;
                             object-fit: cover;
                         }
                     }
@@ -1893,6 +1943,15 @@ footer {
                                     &:hover{
                                         color: $primary-color;
                                     }
+                                }
+                            }
+
+                            .status_pengaduan{
+                                width: 50%;
+                                text-align: center;
+
+                                .badge{
+                                    padding: 10px 0px;
                                 }
                             }
                         }
@@ -1974,6 +2033,8 @@ footer {
             }
 
             .detail-body {
+                width: 100% !important;
+                background-color: yellow !important;
                 margin-top: 40px;
                 padding: 0px 10px;
 
@@ -1984,13 +2045,73 @@ footer {
         }
     }
 
-    .detail-bx{
-        display: flex;
-        flex-direction: column;
 
-        .tanggapan-bx{
-            margin-top: 50px;
-            width: auto;
+    .detail_pengaduan{
+        width: 100%;
+        margin: 50px 0px;
+        @include d-flex($justify: space-between, $direct : column);
+        .img-bx{
+            margin-bottom: 50px;
+            width: 100%;
+            width:90%;
+            height: 420px;
+            // background-color: #ddd;
+    
+            img{
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                cursor: pointer;
+            }
+        }
+        .detail-bx{
+            display: flex;
+            flex-direction: column;
+            width:90%;
+        
+            .detail-body{
+                width: 100%;
+        
+                .detail-date{
+                    font-size: 14px;
+                    padding: 10px 0px;
+                }
+                .detail-title{
+                    margin-bottom: 20px;
+                }
+                .detail-paragraf{
+                    width: 92%;
+                    p{
+                        word-wrap: break-word;
+                        font-size: 14px;
+                        font-weight: $fw-reguler;
+                        line-height: 24px;
+                        text-align: justify;
+                        color: #666;
+                    }
+                }
+            }
+            .tanggapan-bx{
+                margin-top: 40px;
+                width: 84%;
+                padding: 28px;
+                border: 1px solid #ddd;
+                h3{
+                    font-size: 14px;
+                    margin-bottom: 20px;
+                }
+                p{
+                    font-size: 14px;
+                    text-align: justify;
+                    line-height: 24px;
+                    color: #666;
+                    margin-bottom: 20px;
+                }
+                span{
+                    font-size: 14px;
+                    color: #444;
+                }
+            }
         }
     }
 
@@ -2108,6 +2229,7 @@ footer {
         }
     }
 
+    
 
 
 

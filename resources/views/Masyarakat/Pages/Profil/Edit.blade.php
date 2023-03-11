@@ -1,24 +1,27 @@
 @extends('Masyarakat.Tamplate.tamplate')
 
+@section('css')
+<link rel="stylesheet" href="../../Masyarakat/Assets/css/style.css">
+@endsection
+
 @section('content')
 
-    @include('Masyarakat.Tamplate.Partials._navbar1')
+{{-- @dd($data) --}}
 
-
-    <main>
+    <main style="margin-top : 80px;">
         <div class="container-md">
             <div class="form-pengaduan">
                 <div class="form-pengaduan_header">
-                    <h4>Buat Laporan</h4>
+                    <h4>Edit Laporan</h4>
                     <p>Ada yang ingin anda laporkan?anda hanya perlu mengisi form pelaporan di bawah ini.</p>
                 </div>
-                <form action="{{ route('pengaduan.masyarakat') }}" class="form-pengaduan_form" method="POST" enctype="multipart/form-data">
+                <form action="/pengaduan/edit/store/{{ $data->id }}" class="form-pengaduan_form" method="POST" enctype="multipart/form-data">
                     @csrf
                         <select name="publish" id="" class="input-pengaduan-group" style="padding:0px 20px;outline:none;-webkit-appearance: none;
                         -moz-appearance: none;
                         text-indent: 1px;
                         text-overflow: '';color:#818181;">
-                            <option value="public" >Published</option>
+                            <option value="{{ $data->publish }}" >{{ $data->publish }}</option>
                             <option value="public">Public</option>
                             <option value="private">Private</option>
                         </select>
@@ -28,7 +31,7 @@
                             <br>
                         @enderror
                     <div class="input-pengaduan-group">
-                        <input type="text" name="judul_laporan" placeholder="Masukan Judul Laporan" value="{{ old('judul_laporan') }}">
+                        <input type="text" name="judul_laporan" placeholder="Masukan Judul Laporan" value="{{ $data->judul_laporan }}">
                     </div>
                     @error('judul_laporan')
                         <span class="error_message">{{ $message }}</span>
@@ -36,7 +39,7 @@
                         <br>
                     @enderror
                     <div class="input-pengaduan-group text-area">
-                        <textarea name="isi_laporan" id="" placeholder="Isi Laporan">{{ old('isi_laporan') }}</textarea>
+                        <textarea name="isi_laporan" id="" placeholder="Isi Laporan">{{ $data->isi_laporan }}</textarea>
                     </div>
                     @error('isi_laporan')
                         <span class="error_message">{{ $message }}</span>
@@ -44,7 +47,7 @@
                         <br>
                     @enderror
                     <div class="input-pengaduan-group _date">
-                        <input type="text" name="lokasi" placeholder="Lokasi Kejadian" value="{{ old('lokasi') }}">
+                        <input type="text" name="lokasi" placeholder="Lokasi Kejadian" value="{{ $data->lokasi }}">
                     </div>
                     @error('lokasi')
                         <span class="error_message">{{ $message }}</span>
@@ -53,7 +56,7 @@
                     <div class="input-pengaduan-group _date">
                         <input type="file" class="choose-file_selected" name="foto" hidden >
                         <label for="placeholder" class="choose-file_select">
-                            <span class="choose-text">Pilih File</span>
+                            <span>{{ $data->foto }}</span>
                         </label> 
                     </div>
                         @error('foto')
@@ -62,7 +65,7 @@
                             <br>
                         @enderror  
                     <div class="input-pengaduan-group btn">
-                        <input type="submit" value="Submit">
+                        <input type="submit" value="Update">
                     </div>
 
 
@@ -70,9 +73,6 @@
             </div>
         </div>
     </main>
-
-
-    @include('Masyarakat.Tamplate.Partials._navBottom')
 
     @if (session()->has('success'))
         <script>
@@ -87,7 +87,6 @@
     
         choose_selected.addEventListener('click', () => {
             choose_select.click();
-            // choose_text.innerHTML = "Nama File yang di pilih";
         });
 
         choose_select.onchange = ( {target} ) => {
@@ -99,10 +98,6 @@
             }
 
         }
-
-
-
-    
     </script>
 
 @endsection

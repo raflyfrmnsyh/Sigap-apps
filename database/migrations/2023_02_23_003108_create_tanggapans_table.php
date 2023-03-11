@@ -16,7 +16,7 @@ return new class extends Migration
         Schema::create('tanggapan', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('id_pengaduan');
-            $table->foreign('id_pengaduan')->references('id')->on('pengaduan');
+            $table->foreign('id_pengaduan')->references('id')->on('pengaduan')->cascadeOnDelete();
             $table->timestamp('tgl_tanggapan');
             $table->text('tanggapan');
             $table->string('status');

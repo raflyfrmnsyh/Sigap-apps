@@ -66,7 +66,7 @@
             <span class="text-center mt-4">Data tidak ada</span>                    
         @endif
         <div class="p-3">
-            {!! $data->links() !!}
+            {!! $data->links('pagination::bootstrap-4') !!}
         </div>
     </div>  
 

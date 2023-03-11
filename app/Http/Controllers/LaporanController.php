@@ -12,7 +12,7 @@ class LaporanController extends Controller
 
     public function index()
     {
-        return view('Petugas\laporan\index', [
+        return view('Petugas.laporan.index', [
             'title' => 'Generate Laporan'
         ]);
     }
@@ -38,7 +38,7 @@ class LaporanController extends Controller
 
 
 
-        return view('Petugas\laporan\cetak', [
+        return view('Petugas.laporan.cetak', [
             'title' => 'Cetak Laporan',
             'data' => $data,
             'count' => $count

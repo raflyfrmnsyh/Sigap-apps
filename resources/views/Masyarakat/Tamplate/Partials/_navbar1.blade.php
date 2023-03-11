@@ -2,7 +2,7 @@
     <div class="container-md">
         <div class="navbar-top">
             <a href="/beranda"class="navbar-logo">
-                <img src="Masyarakat/Assets/img/logo-dark.png" alt="Logo">
+                <img src="../../Masyarakat/Assets/img/logo-dark.png" alt="Logo">
             </a>
             <div class="navbar-menu">
                 <div class="nav-link">

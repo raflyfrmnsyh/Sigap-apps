@@ -27,6 +27,8 @@ Route::get('/', function () {
 });
 
 
+
+
 Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
 Route::get('/admin/logout', [AuthController::class, 'logoutAdmin'])->name('admin.logout');
 
@@ -58,6 +60,10 @@ Route::middleware(['auth', 'masyarakat', 'disableBack'])->group(function () {
         Route::get('/feed', 'feedSigap')->name('feed.masyarakat');
         Route::get('/bantuan', 'bantuan')->name('bantuan.masyarakat');
         Route::get('/pusat-bantuan', 'show')->name('pusat.bantuan');
+
+
+        Route::get('/pengaduan/edit/{id}', 'editPengaduan')->name('edit.pengaduan');
+        Route::post('/pengaduan/hapus/{id}', 'hapusPengaduan')->name('hapus.pengaduan');
     });
 
     Route::controller(ProfilController::class)->group(function () {
@@ -75,6 +81,7 @@ Route::middleware(['auth', 'masyarakat', 'disableBack'])->group(function () {
 
     Route::controller(PengaduanController::class)->group(function () {
         Route::post('/buat-pengaduan', 'store')->name('pengaduan.masyarakat');
+        Route::post('/pengaduan/edit/store/{id}', 'editProsess')->name('edit.pengaduan.masyarakat');
     });
 });
 
@@ -83,6 +90,7 @@ Route::controller(PetugasController::class)->group(function () {
 
     Route::middleware(['auth', 'petugas', 'disableBack'])->group(function () {
         Route::get('/admin/dashboard', 'viewDashboard')->name('admin.dashboard');
+
         Route::get('/admin/pengaduan-masuk', 'viewPengaduanMasuk')->name('pengaduan.masuk');
         Route::get('/admin/pengaduan-ditanggapi', 'viewPengaduanDitanggapi')->name('pengaduan.ditanggapi');
         Route::get('/admin/pengaduan-ditolak', 'viewPengaduanDitolak')->name('pengaduan.ditolak');
@@ -104,7 +112,7 @@ Route::controller(PetugasController::class)->group(function () {
 
         Route::post('/admin/hapus-petugas/{user_id}', 'deletePetugas')->name('delete.petugas');
 
-        Route::get('/admin/edit-petugas/{user_id}', 'viewUbahDataPetugas');
+        Route::get('/admin/edit-petugas/{user_id}', 'viewUbahDataPetugas')->name(('view.ubah.petugas'));
         Route::put('/admin/edit-petugas/{user_id}', 'viewUbahDataPetugas');
         Route::post('/admin/edit-petugas/{user_id}', 'UbahDataPetugas')->name('ubah.petugas');
 

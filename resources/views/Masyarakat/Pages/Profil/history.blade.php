@@ -40,7 +40,6 @@
         @endif
 
         @foreach ($data as $i)     
-        {{-- @dd($i->status)        --}}
                 <div class="history-bx">
                     <div class="card-history">
                         <div class="card-img">
@@ -50,7 +49,7 @@
                             <div class="card-body_head">
                                 <div class="_title">
                                     <div class="date">{{ date( 'D - m - Y', strtotime( $i->tgl_pengaduan ) ) }}</div>
-                                    <a href="/history/lihat-detail/{{ $i->id }}" class="judul_pengaduan">{{ $i->judul_laporan }}</a>
+                                    <h3 class="judul_pengaduan">{{ $i->judul_laporan }}</h3>
                                 </div>
                                 <div class="status_pengaduan">
                                     @if ($i->status == 'prosess')
@@ -73,11 +72,30 @@
                             <div class="card-body_text">
                                 <p>{{ $i->isi_laporan }}</p>
                             </div>
+
+                            <div class="card-bottom">
+                                <a href="/history/lihat-detail/{{ $i->id }}" class="btn btn-selengkapnya">Lihat Detail</a>
+
+                                <a href="/pengaduan/edit/{{ $i->id }}" class="btn-edit">
+                                <i class="bx bx-edit"></i></a>
+                                
+                                <form action="/pengaduan/hapus/{{ $i->id }}" method="POST">
+                                    @csrf
+                                    <button type="submit" class="bx bx-trash btn-hapus" onclick="return confirm('Yakin akan menghapus aduan ini??')"></button>
+                                </form>
+
+                            </div>
                         </div>
                     </div>
                 </div>
                 
             @endforeach
+
+            @if (session()->has('success'))
+                <script>
+                    alert(`{{ session('success') }}`);  
+                </script>        
+            @endif
 
         
     </div>

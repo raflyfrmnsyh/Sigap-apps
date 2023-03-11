@@ -24,7 +24,7 @@ class Tanggapan extends Model
 
     public function pengaduan()
     {
-        return $this->belongsTo(Pengaduan::class, 'id', 'id');
+        return $this->hasMany(Pengaduan::class, 'id', 'id');
     }
 
     public function user()

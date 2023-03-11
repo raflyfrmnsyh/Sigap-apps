@@ -29,7 +29,7 @@ class PetugasController extends Controller
 
 
 
-        return view('Petugas\index', [
+        return view('Petugas.index', [
             'title' => 'Dashboard',
             'total_pengaduan' => $data->count(),
             'total_prosess' => $data1->count(),
@@ -45,7 +45,7 @@ class PetugasController extends Controller
         $data = Pengaduan::where('status', 'prosess')->paginate(5);
         $count = 1;
 
-        return view('Petugas\KelolaAduan\kontakMasuk', [
+        return view('Petugas.KelolaAduan.kontakMasuk', [
             'title' => 'Pengaduan Masuk',
             'data' => $data,
             'count' => $count
@@ -58,7 +58,7 @@ class PetugasController extends Controller
         $data = Pengaduan::where('status', 'terima')->paginate(5);
         $count = 1;
 
-        return view('Petugas\KelolaAduan\SudahDitanggapi', [
+        return view('Petugas.KelolaAduan.SudahDitanggapi', [
             'title' => 'Pengaduan Diterima',
             'data' => $data,
             'count' => $count
@@ -71,7 +71,7 @@ class PetugasController extends Controller
     {
         $data = Pengaduan::where('status', 'tolak')->paginate(5);
         $count = 1;
-        return view('Petugas\KelolaAduan\Ditolak', [
+        return view('Petugas.KelolaAduan.Ditolak', [
             'title' => 'Pengaduan Ditolak',
             'data' => $data,
             'count' => $count
@@ -89,7 +89,7 @@ class PetugasController extends Controller
             // dd($item);
         }
 
-        return view('Petugas\KelolaAduan\editTanggapan', [
+        return view('Petugas.KelolaAduan.editTanggapan', [
             'title' => 'Edit Tanggapan',
             'data' => $id,
             'tanggapan' => $item
@@ -140,7 +140,7 @@ class PetugasController extends Controller
     public function viewUbahDataPetugas(User $user_id)
     {
         // return $user_id;
-        return view('Petugas\KelolaPetugas\ubahPetugas', [
+        return view('Petugas.KelolaPetugas.ubahPetugas', [
             'title' => 'Ubah Data Petugas',
             'data' => $user_id
 
@@ -207,7 +207,7 @@ class PetugasController extends Controller
     {
         $data = Tanggapan::where('id_pengaduan', $id->id);
 
-        return view('Petugas\KelolaAduan\detail', [
+        return view('Petugas.KelolaAduan.detail', [
             'title' => 'Detail Pengaduan',
             'data' => $id,
             'tanggapan' => $data
@@ -217,6 +217,8 @@ class PetugasController extends Controller
 
     public function tanggapi(Request $request, Pengaduan $id)
     {
+        // dd($id);
+
         $request->merge([
             'id_pengaduan' => $id->id,
             'tanggapan' => $request->tanggapan,
@@ -224,9 +226,9 @@ class PetugasController extends Controller
             'username' => auth()->user()->username
         ]);
 
-        // dd($request->all());
+        $data = $request->all();
 
-        Tanggapan::create($request->all());
+        Tanggapan::create($data);
 
         Pengaduan::where('id', $id->id)
             ->where('status', 'prosess')
@@ -248,7 +250,7 @@ class PetugasController extends Controller
 
         $count = 1;
 
-        return view('Petugas\KelolaPetugas\masyarakat', [
+        return view('Petugas.KelolaPetugas.masyarakat', [
             'title' => 'Data Petugas',
             'data' => $data,
             'count' => $count
@@ -261,7 +263,7 @@ class PetugasController extends Controller
 
     public function viewRegPetugas()
     {
-        return view('Petugas\KelolaPetugas\addPetugas', [
+        return view('Petugas.KelolaPetugas.addPetugas', [
             'title' => 'Register Petugas',
         ]);
     }
@@ -303,7 +305,7 @@ class PetugasController extends Controller
 
         $count = 1;
 
-        return view('Petugas\KelolaPetugas\view', [
+        return view('Petugas.KelolaPetugas.view', [
             'title' => 'Data Petugas',
             'data' => $data,
             'count' => $count

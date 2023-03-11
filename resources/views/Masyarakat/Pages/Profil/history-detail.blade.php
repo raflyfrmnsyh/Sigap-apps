@@ -16,7 +16,6 @@
 </head>
 <body>
 
-    {{-- @dd($tanggapan) --}}
         <header class="header2">
             <div class="container-md">
                 <nav class="navbar-2">
@@ -52,7 +51,7 @@
                             {{ date( 'D - m - Y', strtotime( $data->tgl_pengaduan ) ) }}
                         </p>
                         <h3 class="detail-title">
-                            Judul Berita
+                            {{ $data->judul_laporan }}
                         </h3>
                         <div class="detail-paragraf">
                             <p>{{ $data->isi_laporan }}</p>

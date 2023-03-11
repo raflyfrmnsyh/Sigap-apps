@@ -19,7 +19,7 @@ class ProfilController extends Controller
     {
 
 
-        return view('Masyarakat\Pages\Profil\index', [
+        return view('Masyarakat.Pages.Profil.index', [
             'title' => 'Profil Saya',
             'userData' => Auth::user(),
             'data' => Pengaduan::all()
@@ -31,7 +31,7 @@ class ProfilController extends Controller
     public function akunSaya()
     {
 
-        return view('Masyarakat\Pages\Profil\myaccount', [
+        return view('Masyarakat.Pages.Profil.myaccount', [
             'title' => 'Akun Saya',
             'userData' => Auth::user()
         ]);
@@ -40,7 +40,7 @@ class ProfilController extends Controller
 
     public function viewUbah()
     {
-        return view('Masyarakat\Pages\Profil\updateData', [
+        return view('Masyarakat.Pages.Profil.updateData', [
             'title' => 'Ubah Data',
             'userData' => Auth::user(),
         ]);
@@ -48,7 +48,7 @@ class ProfilController extends Controller
 
     public function ubahPassword()
     {
-        return view('Masyarakat\Pages\Profil\reset', [
+        return view('Masyarakat.Pages.Profil.reset', [
             'title' => 'Reset Password'
         ]);
     }

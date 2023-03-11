@@ -20,21 +20,21 @@ class AuthController extends Controller
 
     public function viewLogin()
     {
-        return view('Masyarakat\Auth\index', [
+        return view('Masyarakat.Auth.index', [
             'title' => 'Login - Sigap'
         ]);
     }
 
     public function viewRegister()
     {
-        return view('Masyarakat\Auth\daftar', [
+        return view('Masyarakat.Auth.daftar', [
             'title' => 'Register - Sigap'
         ]);
     }
 
     public function loginAdmin()
     {
-        return view('Petugas\Auth\index', [
+        return view('Petugas.Auth.index', [
             'title' => 'Login - Admin'
         ]);
     }
@@ -75,7 +75,7 @@ class AuthController extends Controller
 
         Masyarakat::create($request->all())->only('user_id', 'nik', 'name', 'telp');
 
-        return redirect()->intended('/login')->with('success', 'Daftar Berhasil, silahakan Login!');
+        return redirect()->intended('/login')->with('success', 'Daftar Berhasil, silahkan Login!');
 
         // $data = $request->all();
 
@@ -101,7 +101,7 @@ class AuthController extends Controller
         if (Auth::attempt($log)) {
             $request->session()->regenerate();
 
-            return redirect()->intended(route('beranda.masyarakat'));
+            return redirect()->intended(route('feed.masyarakat'));
         } else {
             return back()->with('fail', 'Gagal Login!');
         }

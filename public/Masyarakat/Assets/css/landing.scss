@@ -1,0 +1,939 @@
+$bg-color : #fdfdfd;
+$bg-gradient : linear-gradient(#EB455F, #7C0417);
+$primary-color : #EB455F;
+$sc-color : #FCFFE7;
+$dark-color : #2B3467;
+$blue-color : #BAD7E9;
+
+$fs-5 : 42px;
+$fs-4 : 32px;
+$fs-3 : 24px;
+$fs-2 : 18px;
+$fs-1 : 14px;
+
+$fw-extra : 700;
+$fw-semibold : 600;
+$fw-md : 500;
+$fw-reguler : 400;
+$fw-extra-light : 300;
+
+
+@mixin d-flex($align: center, $justify: center, $direct :row) {
+    display: flex;
+    align-items: $align;
+    justify-content: $justify;
+    flex-direction: $direct;
+}
+
+@mixin btn-rounded ($radius :0, $type: solid, $color: #ddd, $width: 0, $height: 0, $bg: #ddd) {
+    .btn-rounded {
+        outline: none;
+        border: 1px $type $color;
+        border-radius: $radius;
+        background-color: $bg;
+        width: $width;
+        height: $height;
+        @include d-flex();
+    }
+}
+
+@mixin btn($radius :0, $type: solid, $color: #ddd, $width: 0, $height: 0, $bg: #ddd) {
+    outline: none;
+    border: 1px $type $color;
+    background-color: $bg;
+    width: $width;
+    height: $height;
+    @include d-flex();
+}
+
+// root
+* {
+    padding: 0;
+    margin: 0;
+    font-family: 'Montserrat', sans-serif;
+}
+html{
+    scroll-behavior: smooth;
+}
+
+
+
+body {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    background-color: $bg-color;
+    overflow-x: hidden;
+    box-sizing: border-box;
+}
+.container-md {
+    width: 80%;
+    height: 100%;
+    margin: auto;
+}
+
+.wrapper-landing{
+    nav{
+        height: 120px;
+        @include d-flex();
+
+        .container-md{
+            position: relative;
+
+            .navbar{
+                width: 100%;
+                height: 100%;
+                @include d-flex($justify : space-between);
+    
+                .navbar_logo{
+                    width: 160px;
+                    img{
+                        width: 100%;
+                    }
+                }
+    
+                .nav-menu{
+                    @include d-flex();
+        
+                    .nav-item{
+                        margin-left: 40px;
+                        font-size: 14px;
+                        list-style: none;
+        
+                        a{
+                            text-decoration: none;
+                            color: #44444490;
+                            font-weight: $fw-reguler;
+                            transition: all ease .4s;
+        
+                            &:hover{
+                                color: $primary-color;
+                            }
+        
+                        }
+                        &.active{
+                            a{
+                                color: $primary-color;
+                                font-weight: $fw-semibold;
+                            }
+                        }
+                        
+                        &.btn{
+                            a{
+                                padding: 14px 20px;
+                                border-radius: 12px;
+                                width: 100%;
+                                height: 100%;
+                                color: white;
+                                background-color: $primary-color;
+                                border: 2px solid $primary-color;
+        
+                            }
+                            &.btn-login{
+                                a{
+                                    background-color: transparent;
+                                    color: $primary-color;
+                                }
+                            }
+                        }
+
+                        
+        
+                        
+                    }
+        
+        
+                }
+    
+
+                
+                .cta-btn{
+                    display: none;
+                }
+  
+            }
+        }
+    }
+
+    .hero{
+        // background-color: salmon;
+        width: 100%;
+        height: 620px;
+        @include d-flex($justify : space-between);
+
+        .hero-info{
+            width: 48%;
+            .text{
+                h2{
+                    font-size: 42px;
+                    color: #333;
+                    line-height: 58px;
+                    font-weight: $fw-extra;
+                    span{
+                        color: $primary-color;
+                    }
+                }
+                p{
+                    margin-top: 20px;
+                    color: #888;
+                    
+                }
+            }
+            .download{
+                margin-top: 40px;
+                img{
+                    margin-right: 20px;
+                }
+            }
+        }
+    }
+
+    .fitur-section{
+        @include d-flex($justify : space-between);
+        height: 560px;
+
+        .fitur-list{
+            width: 50%;
+            @include d-flex($justify : space-between);
+            flex-wrap: wrap;
+            .card{
+                margin-bottom: 20px;
+                border: 1px solid #eaeaea;
+                padding: 20px;
+                width: 40%;
+
+                .icon{
+                    img{
+                        width: 64px;
+                    }
+                    margin-bottom: 10px;
+                }
+                .body{
+                    h3{
+                        font-size: 16px;
+                        color: #444;
+                    }
+                    p{
+                        margin-top: 10px;
+                        font-size: 14px;
+                        color: #888;
+                    }
+                }
+            }
+        }
+
+        .fitur-detail{
+            width: 40%;
+
+            h5{
+                color: $primary-color;
+                font-size: 18px;
+                margin-bottom: 10px;
+            }
+            h2{
+                font-size: 32px;
+                color: #444;
+                margin-bottom: 20px;
+            }
+            p{
+                font-size: 14px;
+                line-height: 24px;
+                color: #888;
+                text-align: justify;
+
+            }
+        }
+
+    }
+
+    .tentang-section{
+        // background-color: salmon;
+        width: 100%;
+        height: 560px;
+        position: relative;
+
+        .container-md{
+            @include d-flex($justify : space-between);
+
+            .tentang-info{
+                width: 48%;
+
+                h5{
+                    color: $primary-color;
+                    font-size: 18px;
+                    margin-bottom: 10px;
+                }
+                h2{
+                    font-size: 32px;
+                    color: #444;
+                    margin-bottom: 20px;
+                }
+                p{
+                    font-size: 14px;
+                    line-height: 24px;
+                    color: #888;
+                    text-align: justify;
+                    margin-bottom: 40px;
+    
+                }
+
+                .btn{
+                    padding: 14px 20px;
+                    border-radius: 12px;
+                    width: 100%;
+                    height: 100%;
+                    color: white;
+                    background-color: $primary-color;
+                    border: 2px solid $primary-color;
+                    text-decoration: none;
+                    transition: all ease .4s;
+
+                    &:hover{
+                        background-color: #d33c53;
+                    }
+                }
+            }
+            .mockup-img{
+                img{
+                }
+            }
+        }
+
+        .gradient{
+            position: absolute;
+            top: -2px;
+            right: 0;
+            z-index: -10;
+            height: 100%;
+            width: 400px;
+            background-image: linear-gradient(270deg, rgba(235, 69, 95, 0.6) -20.07%, rgba(235, 69, 95, 0) 79.08%);
+        }
+    }
+
+    .alur-section{
+        width: 100%;
+        height: 540px;
+
+        .container-md{
+            @include d-flex($direct : column);
+
+            .title{
+                margin: 0 auto;
+                text-align: center;
+                width: 50%;
+                h4{
+                    font-size: 18px;
+                    color: $primary-color;
+                }
+                h2{
+                    margin-top: 20px;
+                    font-size: 32px;
+                    color: #222;
+                }
+            }
+
+            .alur-bx{
+                margin-top: 80px;
+                @include d-flex($justify : space-between);
+    
+                .card{
+                    width: 24%;
+    
+                    .icon{
+                        width: 42px;
+                        height: 42px;
+                        @include d-flex();
+                        font-size: 22px;
+                        border-radius: 12px;
+                        color: $primary-color;
+                        background-color: #EB455F20;
+                        margin-bottom: 20px;
+                    }
+    
+                    .body{
+                        p{
+                            margin-top: 10px;
+                            color: #666;
+                            font-size: 14px;
+                            line-height: 24px;
+                        }
+                    }
+                }
+            }
+        }
+
+
+
+    }
+    .section-footer{
+        height: 300px;
+
+        .container-md{
+            padding: 50px 0px;
+            border-top: 1px solid #ddd;
+            border-bottom: 1px solid #ddd;
+
+            .footer{
+                width: 100%;
+                height: 100%;
+                @include d-flex($justify : space-between);
+
+                .footer-info{
+                    width: 50%;
+                    .footer-logo{
+                        img{
+                            width: 30%;
+                        }
+                    }
+                    .footer-text{
+                        margin-top: 20px;
+                        width: 96%;
+                        h2{
+                            width: 100%;
+                            line-height: 32px;
+                            font-size: 22px;
+                            margin-bottom: 10px;
+                            color: #444;
+                        }
+                        p{
+                            color: #666;
+                            font-size: 16px;
+                            line-height: 26px;
+                        }
+                    }
+                }
+
+                .footer-menu{
+                    width: 40%;
+                    @include d-flex($align : none);
+                    .footer-item{
+                        width: 50%;
+                        h3{
+                            color: $primary-color;
+                            margin-bottom: 20px;
+                        }
+                        .footer-link{
+                            display: flex;
+                            flex-direction: column;
+                            font-size: 14px;
+                            a{
+                                margin-bottom: 14px;
+                                text-decoration: none;
+                                font-weight: $fw-reguler;
+                                color: #888;
+                                transition: all ease .4s;
+
+                                &:hover{
+                                    color: $primary-color;
+                                    margin-left: 2px;
+                                }
+                            }
+                        }
+                    }
+                }
+
+            }
+        }
+
+        .copy{
+            .container-md{
+                padding: 30px !important;
+                border-top: none;
+
+                div{
+                    opacity: .6;
+                    @include d-flex();
+
+                    span{
+                        font-size: 14px;
+                        margin-left: 10px;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.back-top-btn{
+    // display: none;
+    right: 40px;
+    bottom: 40px;
+    width: 42px;
+    height: 0px;
+    @include d-flex();
+    cursor: pointer;
+    background-color: $primary-color;
+    color: #fff;
+    position: fixed;
+    transition: all ease .4s;
+
+    i{
+        opacity: 0;
+        font-size: 24px;
+        margin-top: 3px;
+    }
+
+    &:hover{
+        background-color: #d3354c;
+    }
+
+    &.show{
+        height: 42px;
+
+        i{
+            opacity: 1;
+        }
+    }
+
+}
+
+
+@media only screen and (max-width :992px) 
+{
+    .wrapper-landing{
+        nav{
+            height: 120px;
+            @include d-flex();
+    
+            .container-md{
+                position: relative;
+
+                .navbar{
+                    width: 100%;
+                    height: 100%;
+                    @include d-flex($justify : space-between);
+        
+                    .navbar_logo{
+                        width: 160px;
+                        img{
+                            width: 100%;
+                        }
+                    }
+        
+                    .nav-menu{
+        
+                        position: absolute;
+                        background-color: $bg-color;
+                        top: 120px;
+                        width: 100%;
+                        padding: 8px 0px;
+                        height: 0px;
+                        @include d-flex($direct : column, $justify :space-evenly, $align : start);
+                        transition: all ease .4s;
+                        opacity: 0;
+                        list-style: none;
+                        
+                        &.show{
+                            width: 100%;
+                            height: 360px;
+                            opacity: 1;
+                            // z-index: 2;
+
+                            .nav-item{
+                                width: 90%;
+                                opacity: 1;
+                                visibility: visible;
+                                
+                                &.btn{
+                                    display: none;
+                                    a{
+                                        padding: 10px 60px !important;
+                                    }
+            
+                                    &:hover{
+                                        a{
+                                            margin-left: 0;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+
+                    .nav-item{
+                        margin-left: 0px !important;
+                        font-size: 14px;
+                        list-style: none;
+        
+                        a{
+                            text-decoration: none;
+                            color: #44444490;
+                            font-weight: $fw-reguler;
+                            transition: all ease .4s;
+        
+                            &:hover{
+                                color: $primary-color;
+                            }
+        
+                        }
+                        &.active{
+                            a{
+                                color: $primary-color;
+                                font-weight: $fw-semibold;
+                            }
+                        }
+                        
+                        &.btn{
+                            display: none;
+                        }
+        
+                        
+                    }
+        
+    
+                    
+                    .cta-btn{
+                        display: flex;
+                        align-items: center;
+                        .logBtn{
+                            margin-right: 10px;
+                            background-color: #EB455F20;
+                            width: 42px;
+                            height: 42px;
+                            @include d-flex();
+                            font-size: 24px;
+                            color: $primary-color;
+                            cursor: pointer;
+                            border-radius: 8px;
+                            transition: all ease .4s;
+                            text-decoration: none;
+            
+                            &:hover{
+                                background-color: #EB455F30;
+                            }
+        
+                            i.bx-log-in{
+                                margin-left: -4px;
+                            }
+                        }
+                        .menu-btn{
+                            background-color: #EB455F20;
+                            width: 42px;
+                            height: 42px;
+                            @include d-flex();
+                            font-size: 24px;
+                            color: $primary-color;
+                            cursor: pointer;
+                            border-radius: 8px;
+                            transition: all ease .4s;
+            
+                            &:hover{
+                                background-color: #EB455F30;
+                            }
+                        }
+                    }
+      
+                }
+            }
+        }
+
+        .hero{
+            width: 100%;
+            height: 760px;
+            @include d-flex( $direct : column-reverse,$justify : center, $align: center);
+    
+            .hero-info{
+                width: 100%;
+                .text{
+                    h2{
+                        font-size: 28px;
+                        color: #333;
+                        line-height: 38px;
+                        font-weight: $fw-extra;
+                        span{
+                            color: #333;
+                        }
+                    }
+                    p{
+                        
+                        font-size: 14px;
+                        margin-top: 10px;
+                        color: #888;
+                        
+                    }
+                }
+                .download{
+                    margin-top: 20px;
+                    img{
+                        width: 100px;
+                        margin-right: 20px;
+                    }
+                }
+            }
+            .hero-img{
+                @include d-flex();
+                margin-bottom: 80px;
+                img{
+                    width: 90%;
+                }
+            }
+        }
+
+        .fitur-section{
+            @include d-flex($justify : space-between, $direct : column-reverse);
+            height: 1140px;
+    
+            .fitur-list{
+                width: 100%;
+                margin-top: 40px;
+                @include d-flex($justify : space-between, $direct : column);
+                flex-wrap: wrap;
+                .card{
+                    margin-bottom: 20px;
+                    border: 1px solid #eaeaea;
+                    width: 100%;
+                    padding: 0px !important;
+                    height: 180px;
+                    @include d-flex($direct : column, $align : none);
+                    
+                    .icon{
+                        margin-left: 20px;
+                        margin-right: 20px;
+                        img{
+                            width: 64px;
+                        }
+                        margin-bottom: 10px;
+                    }
+                    .body{
+                        margin-left: 20px;
+                        margin-right: 20px;
+                        h3{
+                            font-size: 16px;
+                            color: #444;
+                        }
+                        p{
+                            margin-top: 10px;
+                            font-size: 14px;
+                            color: #888;
+                        }
+                    }
+                }
+            }
+    
+            .fitur-detail{
+                width: 100%;
+                h5{
+                    color: $primary-color;
+                    font-size: 18px;
+                    margin-bottom: 10px;
+                }
+                h2{
+                    font-size: 32px;
+                    color: #444;
+                    margin-bottom: 20px;
+                }
+                p{
+                    font-size: 14px;
+                    line-height: 24px;
+                    color: #888;
+                    text-align: justify;
+    
+                }
+            }
+    
+        }
+        .tentang-section{
+            margin-top: 50px;
+            width: 100%;
+            height: 780px;
+            position: relative;
+    
+            .container-md{
+                @include d-flex($justify : space-between, $direct : column-reverse);
+    
+                .tentang-info{
+                    width: 100%;
+    
+                    h5{
+                        color: $primary-color;
+                        font-size: 18px;
+                        margin-bottom: 10px;
+                    }
+                    h2{
+                        font-size: 32px;
+                        color: #444;
+                        margin-bottom: 20px;
+                    }
+                    p{
+                        font-size: 14px;
+                        line-height: 24px;
+                        color: #888;
+                        text-align: justify;
+                        margin-bottom: 40px;
+        
+                    }
+    
+                    .btn{
+                        padding: 14px 20px;
+                        border-radius: 12px;
+                        width: 100%;
+                        height: 100%;
+                        color: white;
+                        background-color: $primary-color;
+                        border: 2px solid $primary-color;
+                        text-decoration: none;
+                        transition: all ease .4s;
+    
+                        &:hover{
+                            background-color: #d33c53;
+                        }
+                    }
+                }
+                .mockup-img{
+                    width: 100%;
+                    @include d-flex();
+                    img{
+                        width: 80%;
+                    }
+                }
+            }
+            padding: 40px 0px;
+            .gradient{
+                // visibility: hidden;
+                position: absolute;
+                top: 0;
+                z-index: -10;
+                height: 320px !important;
+                width: 400px;
+                background-image: linear-gradient(270deg, rgba(235, 69, 95, 0.6) -40.07%, rgba(235, 69, 95, 0) 79.04%);
+            }
+        }
+
+        .alur-section{
+            width: 100%;
+            height: 1060px;
+    
+            .container-md{
+                @include d-flex($direct : column);
+    
+                .title{
+                    margin: 0 auto;
+                    text-align: left;
+                    width: 100%;
+                    h4{
+                        font-size: 18px;
+                        color: $primary-color;
+                    }
+                    h2{
+                        margin-top: 20px;
+                        font-size: 24px;
+                        color: #222;
+                    }
+                }
+    
+                .alur-bx{
+                    margin-top: 40px;
+                    @include d-flex($justify : space-between, $direct : column);
+        
+                    .card{
+                        width: 100%;
+                        margin-bottom: 42px;
+        
+                        .icon{
+                            width: 42px;
+                            height: 42px;
+                            @include d-flex();
+                            font-size: 22px;
+                            border-radius: 12px;
+                            color: $primary-color;
+                            background-color: #EB455F20;
+                            margin-bottom: 20px;
+                        }
+        
+                        .body{
+                            p{
+                                margin-top: 10px;
+                                color: #666;
+                                font-size: 14px;
+                                line-height: 24px;
+                            }
+                        }
+                    }
+                }
+            }
+    
+    
+    
+        }
+        .section-footer{
+            margin-top: -30px;
+            height: 640px;
+    
+            .container-md{
+                padding: 50px 0px;
+                border-top: 1px solid #ddd;
+                border-bottom: 1px solid #ddd;
+    
+                .footer{
+                    width: 100%;
+                    height: 100%;
+                    @include d-flex($justify : space-between, $direct : column);
+    
+                    .footer-info{
+                        width: 100%;
+                        .footer-logo{
+                            img{
+                                width: 50%;
+                            }
+                        }
+                        .footer-text{
+                            margin-top: 20px;
+                            h2{
+                                width: 100%;
+                                line-height: 34px;
+                                font-size: 24px;
+                                margin-bottom: 10px;
+                                color: #444;
+                            }
+                            p{
+                                color: #666;
+                                font-size: 16px;
+                                line-height: 26px;
+                                text-align: justify;
+                            }
+                        }
+                    }
+    
+                    .footer-menu{
+                        width: 100%;
+                        height: 420px;
+                        @include d-flex($align : center, $direct : column, $justify : space-between);
+                        margin-top: 40px;
+                        
+                        .footer-item{
+                            width: 100%;
+
+                            &:nth-child(2){
+                                margin-top: 20px;
+                            }
+                            .footer-link{
+                                a{
+                                    margin-bottom: 18px;
+                                }
+                            }
+                        }
+                    }
+    
+                }
+            }
+    
+            .copy{
+                .container-md{
+                    padding: 30px !important;
+                    border-top: none;
+    
+                    div{
+                        opacity: .6;
+                        @include d-flex();
+    
+                        span{
+                            font-size: 14px;
+                            margin-left: 10px;
+                        }
+                    }
+                }
+            }
+        }
+
+    }
+}

@@ -12,6 +12,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
     <!-- CSS -->
+    @yield('css')
     <link rel="stylesheet" href="Masyarakat/Assets/css/style.css">
 </head>
 <body>
